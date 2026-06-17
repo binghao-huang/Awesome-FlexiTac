@@ -24,6 +24,22 @@ Have a relevant work? **[Open a PR or issue](https://github.com/binghao-huang/Aw
 
 To add an entry, edit [`index.html`](index.html) — copy an existing `<article class="gallery-card" ...>` block, update the teaser media (`static/`), title, authors, links, and `data-category` (comma-separated for multiple categories).
 
+### Per-paper detail pages
+
+Each gallery card links to a detail page under [`papers/`](papers/) (e.g. `papers/vt-refine.html`). These pages reuse the same design system as the gallery and are **generated** from the cards by [`tools/build_papers.py`](tools/build_papers.py), so the gallery stays the single source of truth.
+
+After adding or editing a card:
+
+1. Add the new paper's slug to the `SLUGS` list in [`tools/build_papers.py`](tools/build_papers.py) (same order as the cards in `index.html`).
+2. *(Optional)* Add its abstract/affiliations to [`tools/abstracts.json`](tools/abstracts.json), keyed by slug. Without an entry, the page renders with an "Abstract coming soon" placeholder.
+3. Regenerate:
+
+   ```bash
+   python3 tools/build_papers.py
+   ```
+
+   This (re)writes `papers/<slug>.html` for every card and re-links each card's image and title to its detail page. The script is idempotent and has no third-party dependencies.
+
 ## License
 
 Content is shared for research reference. Website template adapted from the FlexiTac project.
