@@ -1,0 +1,29 @@
+# Awesome Flexible Tactile Arrays [![Awesome](https://awesome.re/badge.svg)](https://awesome.re)
+
+A curated list of research on **dense, flexible piezoresistive tactile arrays** for robot manipulation — spanning sensor hardware, simulation, and policy learning.
+
+🔗 **Live site:** https://binghao-huang.github.io/Awesome-Flexible-Tactile-Arrays/
+
+Maintained by the [FlexiTac](https://flexitac.github.io/) team. Inclusion does **not** imply use of the FlexiTac sensor — works built on it are marked with a `FlexiTac` badge on the site.
+
+## Scope
+
+Works in robot manipulation that use dense, flexible, low-cost tactile sensing (piezoresistive arrays and close cousins), regardless of whether they use FlexiTac specifically. Optical (e.g. GelSight) and magnetic (e.g. ReSkin) tactile sensors are out of scope.
+
+## Categories
+
+- **Hardware Design** — sensor and gripper/hand hardware
+- **Glove/Hand** — tactile gloves and multi-fingered hands
+- **Simulation** — tactile simulation and sim-to-real
+- **Multi-Modal Learning** — visuo-tactile / multi-modal policy learning
+- **Locomanipulation/Humanoid** — whole-body and legged tactile manipulation
+
+## Contributing
+
+Have a relevant work? **[Open a PR or issue](https://github.com/binghao-huang/Awesome-Flexible-Tactile-Arrays/issues)** to add it.
+
+To add an entry, edit [`index.html`](index.html) — copy an existing `<article class="gallery-card" ...>` block, update the teaser media (`static/`), title, authors, links, and `data-category` (comma-separated for multiple categories).
+
+## License
+
+Content is shared for research reference. Website template adapted from the FlexiTac project.
