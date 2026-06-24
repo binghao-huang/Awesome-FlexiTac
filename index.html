@@ -103,7 +103,7 @@
 <header class="bg-surface-base text-primary font-body-md w-full top-0 border-b border-outline-variant sticky z-50">
 <div class="flex justify-between items-center h-20 px-margin-mobile md:px-margin-desktop w-full">
 <div class="flex items-center gap-6">
-<a class="font-headline-lg text-headline-lg font-bold text-deep-space tracking-tight" href="https://flexitac.github.io/">Awesome FlexiTac</a>
+<a class="font-headline-lg text-[28px] md:text-[32px] font-bold text-deep-space tracking-tight" href="https://flexitac.github.io/">Awesome FlexiTac</a>
 </div>
 <!-- Actions -->
 <div class="hidden md:flex items-center gap-4">
@@ -126,39 +126,39 @@
 <!-- Left Category Rail (desktop only) — flush to the browser's left edge, full height,
      sticky under the navbar. Look is based on the design-system mockup; categories and
      live counts are driven by the real card data and kept in sync with the top pills. -->
-<aside id="filter-sidebar" class="hidden lg:flex flex-col shrink-0 w-64 self-stretch sticky top-20 h-[calc(100vh-5rem)] overflow-y-auto bg-surface-subtle border-r border-outline-variant px-5 py-6">
+<aside id="filter-sidebar" class="hidden lg:flex flex-col shrink-0 w-[21rem] self-stretch sticky top-20 h-[calc(100vh-5rem)] overflow-y-auto bg-surface-subtle border-r border-outline-variant px-5 py-6">
   <div class="mb-5">
     <h2 class="font-headline-lg-mobile text-headline-lg-mobile text-deep-space">Categories</h2>
     <p class="font-label-caps text-label-caps text-secondary/70 mt-0.5">Filter Research</p>
   </div>
   <nav class="flex flex-col gap-1">
     <button data-filter="all" class="sidebar-filter-btn flex items-center justify-between w-full p-3 text-left rounded-lg transition-colors bg-secondary-container text-on-secondary-container font-bold active-tab-glow">
-      <span class="flex items-center gap-2"><span class="material-symbols-outlined text-[20px]">grid_view</span>All Works</span>
-      <span class="text-xs opacity-70 font-code-sm" data-count="all"></span>
+      <span class="flex items-center gap-2 whitespace-nowrap"><span class="material-symbols-outlined text-[20px]">grid_view</span>All Works</span>
+      <span class="text-xs opacity-70 font-code-sm shrink-0 ml-3" data-count="all"></span>
     </button>
     <button data-filter="Hardware Design" class="sidebar-filter-btn flex items-center justify-between w-full p-3 text-left rounded-lg transition-colors text-on-surface-variant hover:bg-surface-container">
-      <span class="flex items-center gap-2"><span class="material-symbols-outlined text-[20px]">memory</span>Hardware Design</span>
-      <span class="text-xs opacity-60 font-code-sm" data-count="Hardware Design"></span>
+      <span class="flex items-center gap-2 whitespace-nowrap"><span class="material-symbols-outlined text-[20px]">memory</span>Hardware Design</span>
+      <span class="text-xs opacity-60 font-code-sm shrink-0 ml-3" data-count="Hardware Design"></span>
     </button>
     <button data-filter="Glove/Hand" class="sidebar-filter-btn flex items-center justify-between w-full p-3 text-left rounded-lg transition-colors text-on-surface-variant hover:bg-surface-container">
-      <span class="flex items-center gap-2"><span class="material-symbols-outlined text-[20px]">back_hand</span>Glove/Hand</span>
-      <span class="text-xs opacity-60 font-code-sm" data-count="Glove/Hand"></span>
+      <span class="flex items-center gap-2 whitespace-nowrap"><span class="material-symbols-outlined text-[20px]">back_hand</span>Glove/Hand</span>
+      <span class="text-xs opacity-60 font-code-sm shrink-0 ml-3" data-count="Glove/Hand"></span>
     </button>
     <button data-filter="Multi-Modal Learning" class="sidebar-filter-btn flex items-center justify-between w-full p-3 text-left rounded-lg transition-colors text-on-surface-variant hover:bg-surface-container">
-      <span class="flex items-center gap-2"><span class="material-symbols-outlined text-[20px]">account_tree</span>Multi-Modal Learning</span>
-      <span class="text-xs opacity-60 font-code-sm" data-count="Multi-Modal Learning"></span>
+      <span class="flex items-center gap-2 whitespace-nowrap"><span class="material-symbols-outlined text-[20px]">account_tree</span>Multi-Modal Learning</span>
+      <span class="text-xs opacity-60 font-code-sm shrink-0 ml-3" data-count="Multi-Modal Learning"></span>
     </button>
     <button data-filter="Simulation" class="sidebar-filter-btn flex items-center justify-between w-full p-3 text-left rounded-lg transition-colors text-on-surface-variant hover:bg-surface-container">
-      <span class="flex items-center gap-2"><span class="material-symbols-outlined text-[20px]">view_in_ar</span>Simulation</span>
-      <span class="text-xs opacity-60 font-code-sm" data-count="Simulation"></span>
+      <span class="flex items-center gap-2 whitespace-nowrap"><span class="material-symbols-outlined text-[20px]">view_in_ar</span>Simulation</span>
+      <span class="text-xs opacity-60 font-code-sm shrink-0 ml-3" data-count="Simulation"></span>
     </button>
     <button data-filter="Locomanipulation" class="sidebar-filter-btn flex items-center justify-between w-full p-3 text-left rounded-lg transition-colors text-on-surface-variant hover:bg-surface-container">
-      <span class="flex items-center gap-2"><span class="material-symbols-outlined text-[20px]">smart_toy</span>Locomanipulation</span>
-      <span class="text-xs opacity-60 font-code-sm" data-count="Locomanipulation"></span>
+      <span class="flex items-center gap-2 whitespace-nowrap"><span class="material-symbols-outlined text-[20px]">smart_toy</span>Locomanipulation</span>
+      <span class="text-xs opacity-60 font-code-sm shrink-0 ml-3" data-count="Locomanipulation"></span>
     </button>
     <button data-filter="Industry Deployment" class="sidebar-filter-btn flex items-center justify-between w-full p-3 text-left rounded-lg transition-colors text-on-surface-variant hover:bg-surface-container">
-      <span class="flex items-center gap-2"><span class="material-symbols-outlined text-[20px]">factory</span>Industry Deployment</span>
-      <span class="text-xs opacity-60 font-code-sm" data-count="Industry Deployment"></span>
+      <span class="flex items-center gap-2 whitespace-nowrap"><span class="material-symbols-outlined text-[20px]">factory</span>Industry Deployment</span>
+      <span class="text-xs opacity-60 font-code-sm shrink-0 ml-3" data-count="Industry Deployment"></span>
     </button>
   </nav>
 </aside>
@@ -169,10 +169,10 @@
 <!-- Hero Section -->
 <section id="gallery-hero" class="py-16 md:py-20 px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto w-full text-center flex flex-col items-center justify-center">
 <span class="font-label-caps text-label-caps text-primary bg-secondary-container px-4 py-1.5 rounded-full mb-5">AWESOME LIST</span>
-<h1 class="font-display-lg text-display-lg text-deep-space mb-5 max-w-3xl leading-tight">Awesome FlexiTac</h1>
+<h1 class="font-display-lg text-[40px] md:text-[56px] font-bold text-deep-space mb-5 max-w-3xl leading-tight">Awesome FlexiTac</h1>
 <p class="font-body-md text-body-md text-secondary max-w-2xl mx-auto text-lg">The growing ecosystem of research building on FlexiTac, together with the prior works.</p>
 <p class="font-label-caps text-label-caps text-secondary/70 mt-3">Maintained by <a href="https://flexitac.github.io/" target="_blank" rel="noopener" class="text-primary hover:underline font-semibold">FlexiTac Team</a></p>
-<p class="font-body-md text-secondary/80 max-w-2xl mx-auto text-sm mt-4">Have a relevant work? <a href="https://github.com/binghao-huang/Awesome-Flexitac" target="_blank" rel="noopener" class="text-primary hover:underline font-semibold">Open a PR or issue</a> to add it.</p>
+<p class="font-body-md text-secondary/80 max-w-2xl mx-auto text-sm mt-4">Have a relevant work? <a href="https://github.com/binghao-huang/Awesome-FlexiTac" target="_blank" rel="noopener" class="text-primary hover:underline font-semibold">Open a PR or issue</a> to add it.</p>
 </section>
 
 <!-- Filter Bar -->

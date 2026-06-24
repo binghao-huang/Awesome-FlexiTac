@@ -414,7 +414,7 @@ def render_page(p: dict, head_inner: str, ab: dict | None) -> str:
 <header class="bg-surface-base text-primary font-body-md w-full top-0 border-b border-outline-variant sticky z-50">
 <div class="flex justify-between items-center h-20 px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto w-full">
 <div class="flex items-center gap-6">
-<a class="font-headline-lg text-headline-lg font-bold text-deep-space tracking-tight" href="../index.html">Awesome FlexiTac</a>
+<a class="font-headline-lg text-[28px] md:text-[32px] font-bold text-deep-space tracking-tight" href="../index.html">Awesome FlexiTac</a>
 </div>
 <div class="hidden md:flex items-center gap-4">
 <a href="https://discord.gg/6gw887Vxms" target="_blank" rel="noopener" class="bg-deep-space text-white px-4 py-2 rounded font-label-caps text-label-caps hover:bg-on-secondary-fixed transition-colors">Join Discord</a>
@@ -485,7 +485,7 @@ def render_page(p: dict, head_inner: str, ab: dict | None) -> str:
 <div class="flex flex-col gap-3">
 <h4 class="font-label-caps text-label-caps text-surface-variant mb-2">Community</h4>
 <a class="text-surface-variant hover:text-white transition-colors" href="../index.html">All Works</a>
-<a class="text-surface-variant hover:text-white transition-colors" href="https://github.com/binghao-huang/Awesome-Flexitac" target="_blank" rel="noopener">GitHub</a>
+<a class="text-surface-variant hover:text-white transition-colors" href="https://github.com/binghao-huang/Awesome-FlexiTac" target="_blank" rel="noopener">GitHub</a>
 <a class="text-surface-variant hover:text-white transition-colors" href="https://discord.gg/6gw887Vxms" target="_blank" rel="noopener">Discord</a>
 </div>
 </div>
