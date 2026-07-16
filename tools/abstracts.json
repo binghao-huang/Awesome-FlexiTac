@@ -175,7 +175,7 @@
     "tldr": "A robotic gripper combining fingertip tactile sensing with a visuo-tactile active palm to enable dexterous in-hand manipulation.",
     "affiliations": "Purdue University, Columbia University",
     "venueFull": "2026 IEEE/RSJ International Conference on Intelligent Robots and Systems (IROS)",
-    "sourceUrl": "https://yuhao-zhou.com/",
+    "sourceUrl": "https://yuhao-zhou.com/vtap/index.html",
     "verified": false,
     "notes": "no abstract found"
   },
@@ -190,6 +190,18 @@
     "sourceUrl": "https://arxiv.org/abs/2604.27224",
     "verified": true,
     "notes": "Verified against arXiv:2604.27224. The arXiv page confirms the title \"Learning Tactile-Aware Quadrupedal Loco-Manipulation Policies\" with authors including Pokuang Zhou, Yuhao Zhou, Binghao Huang, Yunzhu Li, Yu She, et al. The claimed abstract is verbatim and complete — matches the official arXiv abstract word for word, including the 28.54% improvement figure and the three named tasks (in-hand reorientation with insertion, valve tightening, delicate object manipulation). Not hallucinated, not from a different paper, no corrections needed."
+  },
+  {
+    "id": "tacloco",
+    "abstractFound": true,
+    "abstract": "Dynamic loco-manipulation requires legged robots to coordinate whole-body motion while maintaining stable physical interaction with grasped objects under uncertain external forces. While tactile sensing has been widely studied for robotic manipulation, its role in dynamic whole-body control remains largely unexplored. Existing works without tactile feedback commonly grasp firmly rather than regulate the grasp according to the interaction. We propose TAC-LOCO, a tactile-augmented unified reinforcement learning framework that encodes tactile array observations from compliant grippers into a compact latent representation and joins it with proprioception for unified control of the legs, arm, and gripper. With effective grasp stability reward design, the policy learns to simultaneously track body velocity and end-effector trajectories, moderate grasp force, and prevent object slip under both gradual load changes and sudden release events. We deploy the policy zero-shot on a Unitree Go2 with an Interbotix WidowX 250 arm and tactile gripper, demonstrating dynamic tactile-informed loco-manipulation under varying external interactions, achieving a 47% reduction in grasping force and an object drop rate of less than 1%.",
+    "isSummary": false,
+    "tldr": "TAC-LOCO is a tactile-augmented unified RL framework that fuses compliant-gripper tactile arrays with proprioception for whole-body control of a quadruped's legs, arm, and gripper, cutting grasping force by 47% with an object drop rate under 1% on a Unitree Go2.",
+    "affiliations": "Purdue University, University of Florida",
+    "venueFull": "",
+    "sourceUrl": "https://arxiv.org/abs/2607.10132",
+    "verified": true,
+    "notes": "Verified against arXiv:2607.10132 (title \"TAC-LOCO: Unified Whole-Body Control for Quadrupedal TACtile-Informed LOCO-Manipulation\"; authors Muqun Hu*, Yuhao Zhou*, Kabir Ray Malik, Chi Lin, Won Suk Lee, Yu She, Yan Gu; Purdue University and University of Florida). The abstract is transcribed verbatim from the paper's first page (PDF), including the 47% grasping-force reduction and <1% object drop rate. Status: Under Review."
   },
   {
     "id": "taccorl",

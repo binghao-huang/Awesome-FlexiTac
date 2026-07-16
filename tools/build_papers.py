@@ -43,6 +43,7 @@ SLUGS = [
     "tacvla",
     "vtap-gripper",
     "quad-locomanip",
+    "tacloco",
     "taccorl",
     "wt-umi",
     "hipi",
