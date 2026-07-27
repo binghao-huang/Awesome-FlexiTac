@@ -33,7 +33,6 @@ SLUGS = [
     "3d-vitac",
     "vt-refine",
     "touch-in-the-wild",
-    "deform360",
     None,  # Analog Devices industry feature — links out to analog.com, no detail page
     None,  # Analog Devices Signals+ feature (slip prevention) — external, no detail page
     "leflexitac",
@@ -49,6 +48,8 @@ SLUGS = [
     "wt-umi",
     "hipi",
     "art-glove",
+    "deform360",
+    "felt",
     "actionsense",
     "phystouch",
     "intcarpet",
