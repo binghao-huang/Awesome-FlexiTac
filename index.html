@@ -159,8 +159,12 @@
       <span class="text-xs opacity-60 font-code-sm shrink-0 ml-3" data-count="Locomanipulation"></span>
     </button>
     <button data-filter="Industry Deployment" class="sidebar-filter-btn flex items-center justify-between w-full p-3 text-left rounded-lg transition-colors text-on-surface-variant hover:bg-surface-container">
-      <span class="flex items-center gap-2 whitespace-nowrap"><span class="material-symbols-outlined text-[20px]">factory</span>Industry Deployment</span>
+      <span class="flex items-center gap-2 whitespace-nowrap"><span class="material-symbols-outlined text-[20px]">factory</span>Industry</span>
       <span class="text-xs opacity-60 font-code-sm shrink-0 ml-3" data-count="Industry Deployment"></span>
+    </button>
+    <button data-filter="Dataset" class="sidebar-filter-btn flex items-center justify-between w-full p-3 text-left rounded-lg transition-colors text-on-surface-variant hover:bg-surface-container">
+      <span class="flex items-center gap-2 whitespace-nowrap"><span class="material-symbols-outlined text-[20px]">dataset</span>Dataset</span>
+      <span class="text-xs opacity-60 font-code-sm shrink-0 ml-3" data-count="Dataset"></span>
     </button>
   </nav>
 </aside>
@@ -179,15 +183,16 @@
 
 <!-- Filter Bar -->
 <section id="filter-section" class="sticky top-20 bg-background/90 backdrop-blur-md z-40 border-b border-outline-variant/30 py-4 mb-12">
-<div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop w-full overflow-x-auto no-scrollbar">
-<div class="flex gap-3 min-w-max" id="filter-bar">
-<button data-filter="all" class="filter-btn px-6 py-2 rounded-full font-label-caps text-label-caps bg-secondary-container text-on-secondary-container border border-transparent transition-colors">All Works</button>
-<button data-filter="Hardware Design" class="filter-btn px-6 py-2 rounded-full font-label-caps text-label-caps bg-surface-base text-secondary border border-outline-variant hover:border-primary hover:text-primary transition-colors">Hardware Design</button>
-<button data-filter="Glove/Hand" class="filter-btn px-6 py-2 rounded-full font-label-caps text-label-caps bg-surface-base text-secondary border border-outline-variant hover:border-primary hover:text-primary transition-colors">Glove/Hand</button>
-<button data-filter="Simulation" class="filter-btn px-6 py-2 rounded-full font-label-caps text-label-caps bg-surface-base text-secondary border border-outline-variant hover:border-primary hover:text-primary transition-colors">Simulation</button>
-<button data-filter="Multi-Modal Learning" class="filter-btn px-6 py-2 rounded-full font-label-caps text-label-caps bg-surface-base text-secondary border border-outline-variant hover:border-primary hover:text-primary transition-colors">Multi-Modal Learning</button>
-<button data-filter="Locomanipulation" class="filter-btn px-6 py-2 rounded-full font-label-caps text-label-caps bg-surface-base text-secondary border border-outline-variant hover:border-primary hover:text-primary transition-colors">Locomanipulation</button>
-<button data-filter="Industry Deployment" class="filter-btn px-6 py-2 rounded-full font-label-caps text-label-caps bg-surface-base text-secondary border border-outline-variant hover:border-primary hover:text-primary transition-colors">Industry Deployment</button>
+<div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop w-full">
+<div class="flex flex-wrap justify-center gap-2" id="filter-bar">
+<button data-filter="all" class="filter-btn px-5 py-2 rounded-full font-label-caps text-label-caps bg-secondary-container text-on-secondary-container border border-transparent transition-colors">All Works</button>
+<button data-filter="Hardware Design" class="filter-btn px-5 py-2 rounded-full font-label-caps text-label-caps bg-surface-base text-secondary border border-outline-variant hover:border-primary hover:text-primary transition-colors">Hardware Design</button>
+<button data-filter="Glove/Hand" class="filter-btn px-5 py-2 rounded-full font-label-caps text-label-caps bg-surface-base text-secondary border border-outline-variant hover:border-primary hover:text-primary transition-colors">Glove/Hand</button>
+<button data-filter="Simulation" class="filter-btn px-5 py-2 rounded-full font-label-caps text-label-caps bg-surface-base text-secondary border border-outline-variant hover:border-primary hover:text-primary transition-colors">Simulation</button>
+<button data-filter="Multi-Modal Learning" class="filter-btn px-5 py-2 rounded-full font-label-caps text-label-caps bg-surface-base text-secondary border border-outline-variant hover:border-primary hover:text-primary transition-colors">Multi-Modal Learning</button>
+<button data-filter="Locomanipulation" class="filter-btn px-5 py-2 rounded-full font-label-caps text-label-caps bg-surface-base text-secondary border border-outline-variant hover:border-primary hover:text-primary transition-colors">Locomanipulation</button>
+<button data-filter="Industry Deployment" class="filter-btn px-5 py-2 rounded-full font-label-caps text-label-caps bg-surface-base text-secondary border border-outline-variant hover:border-primary hover:text-primary transition-colors">Industry</button>
+<button data-filter="Dataset" class="filter-btn px-5 py-2 rounded-full font-label-caps text-label-caps bg-surface-base text-secondary border border-outline-variant hover:border-primary hover:text-primary transition-colors">Dataset</button>
 </div>
 </div>
 </section>
@@ -291,7 +296,7 @@
 </article>
 
 <!-- 3. Touch in the Wild -->
-<article data-category="Multi-Modal Learning" class="gallery-card bg-surface-subtle border border-outline-variant rounded-lg overflow-hidden card-hover transition-all duration-300 flex flex-col group">
+<article data-category="Multi-Modal Learning, Dataset" class="gallery-card bg-surface-subtle border border-outline-variant rounded-lg overflow-hidden card-hover transition-all duration-300 flex flex-col group">
   <div class="relative aspect-video bg-surface-container-low overflow-hidden">
     <!-- detail-link:start --><a href="papers/touch-in-the-wild.html" class="block w-full h-full" aria-label="View project details"><video class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-in-out" muted autoplay loop playsinline preload="none"><source src="static/videos/touchinthewild.mp4" type="video/mp4"/></video></a><!-- detail-link:end -->
     <div class="absolute top-4 left-4"><span class="bg-deep-space/90 text-white font-label-caps text-label-caps px-3 py-1 rounded-full">NeurIPS 2025</span></div>
@@ -311,6 +316,28 @@
       <a class="flex items-center gap-1.5 text-secondary hover:text-primary transition-colors font-label-caps text-label-caps" href="https://github.com/YolandaXinyueZhu/touch_in_the_wild" target="_blank" rel="noopener"><span class="material-symbols-outlined text-[16px]">code</span>Code</a>
     </div>
       <a href="papers/touch-in-the-wild.html" class="detail-btn mt-4 flex items-center justify-center gap-1.5 w-full bg-secondary-container text-on-secondary-container hover:bg-primary hover:text-white transition-colors font-label-caps text-label-caps px-4 py-2.5 rounded-lg">View Details<span class="material-symbols-outlined text-[16px]">arrow_forward</span></a>
+    </div>
+  </div>
+</article>
+
+<!-- 3b. Deform360 -->
+<article data-category="Dataset, Multi-Modal Learning" class="gallery-card bg-surface-subtle border border-outline-variant rounded-lg overflow-hidden card-hover transition-all duration-300 flex flex-col group">
+  <div class="relative aspect-video bg-surface-container-low overflow-hidden">
+    <!-- detail-link:start --><a href="papers/deform360.html" class="block w-full h-full" aria-label="View project details"><img alt="Deform360: A Massive Multi-view Visuotactile Dataset for Deformable World Models" loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-in-out" src="static/images/deform360.gif"/></a><!-- detail-link:end -->
+    <div class="absolute top-4 left-4"><span class="bg-deep-space/90 text-white font-label-caps text-label-caps px-3 py-1 rounded-full">ECCV 2026</span></div>
+    <div class="absolute top-4 right-4"><span class="bg-primary text-white font-label-caps text-label-caps px-3 py-1 rounded-full">FlexiTac</span></div>
+  </div>
+  <div class="p-5 flex flex-col flex-grow bg-surface-base border-t border-outline-variant justify-between">
+    <div>
+      <h3 class="font-headline-lg-mobile text-headline-lg-mobile xl:text-lg text-deep-space mb-2 leading-snug"><!-- detail-link:start --><a href="papers/deform360.html" class="hover:text-primary transition-colors">Deform360: A Massive Multi-view Visuotactile Dataset for Deformable World Models</a><!-- detail-link:end --></h3>
+      <p class="authors text-sm text-secondary line-clamp-2"><a href="https://lhy.xyz/">Hongyu Li</a><sup>*</sup>, <a href="https://wanjia-fu.com/">Wanjia Fu</a><sup>*</sup>, <a href="https://oliver-cong02.github.io/">Xiaoyan Cong</a>, <a href="https://kunkun0w0.github.io/">Zekun Li</a>, <a href="https://binghao-huang.github.io/">Binghao Huang</a>, <a href="https://jianghanxiao.github.io/">Hanxiao Jiang</a>, Xintong He, <a href="https://lynl7130.github.io/">Yiqing Liang</a>, <a href="https://freddierao.github.io/">Rao Fu</a>, <a href="https://inspirelt.github.io/">Tao Lu</a>, <a href="https://cs.brown.edu/people/ssrinath/">Srinath Sridhar</a>, <a href="https://www.mit.edu/~k2smith/">Kevin A. Smith</a>, <a href="https://cs.brown.edu/people/gdk/">George Konidaris</a>, <a href="https://yunzhuli.github.io/">Yunzhu Li</a></p>
+    </div>
+    <div class="mt-auto">
+      <div class="flex flex-wrap items-center gap-x-4 gap-y-2 mt-4 pt-3 border-t border-outline-variant/30">
+      <a class="flex items-center gap-1.5 text-primary hover:text-primary-container transition-colors font-label-caps text-label-caps" href="https://deform360.lhy.xyz/" target="_blank" rel="noopener"><span class="material-symbols-outlined text-[16px]">public</span>Webpage</a>
+      <a class="flex items-center gap-1.5 text-secondary hover:text-primary transition-colors font-label-caps text-label-caps" href="https://arxiv.org/abs/2607.05390" target="_blank" rel="noopener"><span class="material-symbols-outlined text-[16px]">description</span>Paper</a>
+    </div>
+      <a href="papers/deform360.html" class="detail-btn mt-4 flex items-center justify-center gap-1.5 w-full bg-secondary-container text-on-secondary-container hover:bg-primary hover:text-white transition-colors font-label-caps text-label-caps px-4 py-2.5 rounded-lg">View Details<span class="material-symbols-outlined text-[16px]">arrow_forward</span></a>
     </div>
   </div>
 </article>
@@ -509,6 +536,7 @@
     <div class="mt-auto">
       <div class="flex flex-wrap items-center gap-x-4 gap-y-2 mt-4 pt-3 border-t border-outline-variant/30">
       <a class="flex items-center gap-1.5 text-primary hover:text-primary-container transition-colors font-label-caps text-label-caps" href="https://yuhao-zhou.com/vtap/index.html" target="_blank" rel="noopener"><span class="material-symbols-outlined text-[16px]">public</span>Webpage</a>
+      <a class="flex items-center gap-1.5 text-secondary hover:text-primary transition-colors font-label-caps text-label-caps" href="https://arxiv.org/abs/2607.15448" target="_blank" rel="noopener"><span class="material-symbols-outlined text-[16px]">description</span>Paper</a>
     </div>
       <a href="papers/vtap-gripper.html" class="detail-btn mt-4 flex items-center justify-center gap-1.5 w-full bg-secondary-container text-on-secondary-container hover:bg-primary hover:text-white transition-colors font-label-caps text-label-caps px-4 py-2.5 rounded-lg">View Details<span class="material-symbols-outlined text-[16px]">arrow_forward</span></a>
     </div>
