@@ -32,6 +32,7 @@ quad-locomanip|https://arxiv.org/pdf/2604.27224
 taccorl|https://arxiv.org/pdf/2606.11743
 wt-umi|https://arxiv.org/pdf/2606.13232
 hipi|https://arxiv.org/pdf/2606.11372
+tactx|https://arxiv.org/pdf/2606.31236
 art-glove|https://arxiv.org/pdf/2606.16370
 "
 

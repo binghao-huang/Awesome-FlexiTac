@@ -95,6 +95,34 @@
     .embed-mode .gallery-card h3 { font-size: 13px !important; line-height: 18px !important; }
     .embed-mode .gallery-card .authors { font-size: 13px !important; }
     .embed-mode .gallery-card .p-5 { padding: 10px !important; }
+    /* ?embed=1&cols=N — wider grid for hosts with more room than the home-page
+       window (the blog post embed uses cols=4). Falls back to 3-up on narrow screens. */
+    .embed-mode.embed-cols-2 #gallery-grid { grid-template-columns: repeat(2, minmax(0, 1fr)) !important; }
+    .embed-mode.embed-cols-4 #gallery-grid { grid-template-columns: repeat(4, minmax(0, 1fr)) !important; }
+    .embed-mode.embed-cols-5 #gallery-grid { grid-template-columns: repeat(5, minmax(0, 1fr)) !important; }
+    .embed-mode.embed-cols-4 .gallery-card .relative,
+    .embed-mode.embed-cols-5 .gallery-card .relative { height: 6.25rem !important; }
+    .embed-mode.embed-cols-4 .gallery-card h3,
+    .embed-mode.embed-cols-5 .gallery-card h3 { font-size: 12px !important; line-height: 16px !important; }
+    .embed-mode.embed-cols-4 .gallery-card .authors,
+    .embed-mode.embed-cols-5 .gallery-card .authors { font-size: 11px !important; }
+    @media (max-width: 900px) {
+      .embed-mode.embed-cols-4 #gallery-grid,
+      .embed-mode.embed-cols-5 #gallery-grid { grid-template-columns: repeat(2, minmax(0, 1fr)) !important; }
+    }
+    /* ?embed=1&filters=1 — keep the category chips usable inside the embed.
+       The header is hidden here, so drop the sticky offset it was aligned to. */
+    .embed-mode.embed-filters #filter-section {
+      display: block !important;
+      position: sticky !important;
+      top: 0 !important;
+      margin-bottom: 0 !important;
+      padding-top: 10px !important;
+      padding-bottom: 10px !important;
+    }
+    .embed-mode.embed-filters #filter-section > div { padding-left: 16px !important; padding-right: 16px !important; }
+    .embed-mode.embed-filters .filter-btn { padding: 5px 12px !important; font-size: 11px !important; }
+    .embed-mode.embed-filters #gallery-section { padding-top: 16px !important; }
 </style>
 </head>
 <body class="bg-background text-on-background font-body-md antialiased min-h-screen flex flex-col">

@@ -50,6 +50,7 @@ SLUGS = [
     "art-glove",
     "deform360",
     "felt",
+    "tactx",
     "actionsense",
     "phystouch",
     "intcarpet",
