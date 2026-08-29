@@ -123,6 +123,25 @@
     .embed-mode.embed-filters #filter-section > div { padding-left: 16px !important; padding-right: 16px !important; }
     .embed-mode.embed-filters .filter-btn { padding: 5px 12px !important; font-size: 11px !important; }
     .embed-mode.embed-filters #gallery-section { padding-top: 16px !important; }
+    /* Relationship to FlexiTac — eyebrow above each card title, so nothing
+       overlays the teaser media. Weights are deliberately unequal: a filled
+       pill for our own hardware, a tinted pill for direct use, an outline for
+       acknowledged influence, plain muted text for context. */
+    .ft-tag {
+      display: inline-flex; align-items: center; gap: 5px;
+      font-size: 10.5px; font-weight: 700; letter-spacing: 0.05em;
+      text-transform: uppercase; line-height: 1.3;
+      padding: 3px 9px; border-radius: 999px; margin-bottom: 8px;
+    }
+    .ft-tag::before { content: ''; width: 5px; height: 5px; border-radius: 50%; background: currentColor; flex: none; }
+    .ft-tag-sensor   { background: firebrick; color: #fff; }
+    .ft-tag-built    { background: rgba(178, 34, 34, 0.10); color: firebrick; }
+    .ft-tag-inspired { background: transparent; color: firebrick; box-shadow: inset 0 0 0 1px rgba(178, 34, 34, 0.45); }
+    .ft-tag-related,
+    .ft-tag-prior    { background: transparent; color: #8a94a6; padding-left: 0; font-weight: 600; }
+    /* Keep the eyebrow from stealing height in the 4-up blog embed. */
+    .embed-mode .ft-tag { font-size: 9px; padding: 2px 7px; margin-bottom: 5px; }
+    .embed-mode .ft-tag-related, .embed-mode .ft-tag-prior { padding-left: 0; }
 </style>
 </head>
 <body class="bg-background text-on-background font-body-md antialiased min-h-screen flex flex-col">
@@ -231,35 +250,13 @@
 <div id="gallery-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-gutter">
 
 <!-- 0. STAG — Scalable Tactile Glove -->
-<article data-category="Hardware Design, Glove/Hand" class="gallery-card bg-surface-subtle border border-outline-variant rounded-lg overflow-hidden card-hover transition-all duration-300 flex flex-col group">
-  <div class="relative aspect-video bg-surface-container-low overflow-hidden">
-    <!-- detail-link:start --><a href="papers/stag.html" class="block w-full h-full" aria-label="View project details"><img alt="Scalable Tactile Glove (STAG)" loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-in-out" src="static/images/stag_glove.png"/></a><!-- detail-link:end -->
-    <div class="absolute top-4 left-4"><span class="bg-deep-space/90 text-white font-label-caps text-label-caps px-3 py-1 rounded-full">Nature 2019</span></div>
-  </div>
-  <div class="p-5 flex flex-col flex-grow bg-surface-base border-t border-outline-variant justify-between">
-    <div>
-      <h3 class="font-headline-lg-mobile text-headline-lg-mobile xl:text-lg text-deep-space mb-2 leading-snug"><!-- detail-link:start --><a href="papers/stag.html" class="hover:text-primary transition-colors">Learning the Signatures of the Human Grasp Using a Scalable Tactile Glove</a><!-- detail-link:end --></h3>
-      <p class="authors text-sm text-secondary line-clamp-2"><a href="https://subras.github.io/" target="_blank" rel="noopener">Subramanian Sundaram</a>, <a href="https://kellnhofer.xyz/" target="_blank" rel="noopener">Petr Kellnhofer</a>, <a href="https://yunzhuli.github.io/" target="_blank" rel="noopener">Yunzhu Li</a>, <a href="https://www.cs.cmu.edu/~junyanz/" target="_blank" rel="noopener">Jun-Yan Zhu</a>, <a href="https://groups.csail.mit.edu/vision/torralbalab/" target="_blank" rel="noopener">Antonio Torralba</a>, <a href="https://cdfg.csail.mit.edu/wojciech" target="_blank" rel="noopener">Wojciech Matusik</a></p>
-    </div>
-    <div class="mt-auto">
-      <div class="flex flex-wrap items-center gap-x-4 gap-y-2 mt-4 pt-3 border-t border-outline-variant/30">
-      <a class="flex items-center gap-1.5 text-primary hover:text-primary-container transition-colors font-label-caps text-label-caps" href="https://stag.csail.mit.edu/" target="_blank" rel="noopener"><span class="material-symbols-outlined text-[16px]">public</span>Webpage</a>
-      <a class="flex items-center gap-1.5 text-secondary hover:text-primary transition-colors font-label-caps text-label-caps" href="papers/pdf/stag-scalable-tactile-glove.pdf" target="_blank" rel="noopener"><span class="material-symbols-outlined text-[16px]">description</span>Paper</a>
-      <a class="flex items-center gap-1.5 text-secondary hover:text-primary transition-colors font-label-caps text-label-caps" href="https://github.com/Erkil1452/touch" target="_blank" rel="noopener"><span class="material-symbols-outlined text-[16px]">code</span>Code</a>
-    </div>
-      <a href="papers/stag.html" class="detail-btn mt-4 flex items-center justify-center gap-1.5 w-full bg-secondary-container text-on-secondary-container hover:bg-primary hover:text-white transition-colors font-label-caps text-label-caps px-4 py-2.5 rounded-lg">View Details<span class="material-symbols-outlined text-[16px]">arrow_forward</span></a>
-    </div>
-  </div>
-</article>
-
-<!-- 1. FlexiTac -->
-<article data-category="Hardware Design" class="gallery-card bg-surface-subtle border border-outline-variant rounded-lg overflow-hidden card-hover transition-all duration-300 flex flex-col group">
+<article data-flexitac="sensor" data-category="Hardware Design" class="gallery-card bg-surface-subtle border border-outline-variant rounded-lg overflow-hidden card-hover transition-all duration-300 flex flex-col group">
   <div class="relative aspect-video bg-surface-container-low overflow-hidden">
     <!-- detail-link:start --><a href="papers/flexitac.html" class="block w-full h-full" aria-label="View project details"><video class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-in-out" muted autoplay loop playsinline preload="none" poster="static/posters/flexitac.jpg"><source src="static/videos/flexitac.mp4" type="video/mp4"/></video></a><!-- detail-link:end -->
-    <div class="absolute top-4 right-4"><span class="bg-primary text-white font-label-caps text-label-caps px-3 py-1 rounded-full">FlexiTac</span></div>
   </div>
   <div class="p-5 flex flex-col flex-grow bg-surface-base border-t border-outline-variant justify-between">
     <div>
+      <div class="ft-tag ft-tag-sensor">Our Open-Source Sensor</div>
       <h3 class="font-headline-lg-mobile text-headline-lg-mobile xl:text-lg text-deep-space mb-2 leading-snug"><!-- detail-link:start --><a href="papers/flexitac.html" class="hover:text-primary transition-colors">FlexiTac: An Open-Source, Scalable Tactile Solution for Robotic Systems</a><!-- detail-link:end --></h3>
       <p class="authors text-sm text-secondary line-clamp-2"><a href="https://binghao-huang.github.io/">Binghao Huang</a>, <a href="https://yunzhuli.github.io/">Yunzhu Li</a></p>
     </div>
@@ -275,15 +272,15 @@
   </div>
 </article>
 
-<!-- 1. 3D-ViTac -->
-<article data-category="Hardware Design, Multi-Modal Learning" class="gallery-card bg-surface-subtle border border-outline-variant rounded-lg overflow-hidden card-hover transition-all duration-300 flex flex-col group">
+<!-- 1. FlexiTac -->
+<article data-flexitac="built" data-category="Hardware Design, Multi-Modal Learning" class="gallery-card bg-surface-subtle border border-outline-variant rounded-lg overflow-hidden card-hover transition-all duration-300 flex flex-col group">
   <div class="relative aspect-video bg-surface-container-low overflow-hidden">
     <!-- detail-link:start --><a href="papers/3d-vitac.html" class="block w-full h-full" aria-label="View project details"><img alt="3D-ViTac" loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-in-out" src="static/images/3d-vitac.jpg"/></a><!-- detail-link:end -->
     <div class="absolute top-4 left-4"><span class="bg-deep-space/90 text-white font-label-caps text-label-caps px-3 py-1 rounded-full">CoRL 2024</span></div>
-    <div class="absolute top-4 right-4"><span class="bg-primary text-white font-label-caps text-label-caps px-3 py-1 rounded-full">FlexiTac</span></div>
   </div>
   <div class="p-5 flex flex-col flex-grow bg-surface-base border-t border-outline-variant justify-between">
     <div>
+      <div class="ft-tag ft-tag-built">Built with FlexiTac</div>
       <h3 class="font-headline-lg-mobile text-headline-lg-mobile xl:text-lg text-deep-space mb-2 leading-snug"><!-- detail-link:start --><a href="papers/3d-vitac.html" class="hover:text-primary transition-colors">3D-ViTac: Learning Fine-Grained Manipulation with Visuo-Tactile Sensing</a><!-- detail-link:end --></h3>
       <p class="authors text-sm text-secondary line-clamp-2"><a href="https://binghao-huang.github.io/">Binghao Huang</a>, <a href="https://wangyixuan12.github.io/">Yixuan Wang</a>, Xinyi Yang, <a href="https://yyueluo.com/">Yiyue Luo</a>, <a href="https://yunzhuli.github.io/">Yunzhu Li</a></p>
     </div>
@@ -299,15 +296,15 @@
   </div>
 </article>
 
-<!-- 2. VT-Refine -->
-<article data-category="Simulation" class="gallery-card bg-surface-subtle border border-outline-variant rounded-lg overflow-hidden card-hover transition-all duration-300 flex flex-col group">
+<!-- 1. 3D-ViTac -->
+<article data-flexitac="built" data-category="Simulation" class="gallery-card bg-surface-subtle border border-outline-variant rounded-lg overflow-hidden card-hover transition-all duration-300 flex flex-col group">
   <div class="relative aspect-video bg-surface-container-low overflow-hidden">
     <!-- detail-link:start --><a href="papers/vt-refine.html" class="block w-full h-full" aria-label="View project details"><video class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-in-out" muted autoplay loop playsinline preload="none"><source src="static/videos/vtrefine.mp4" type="video/mp4"/></video></a><!-- detail-link:end -->
     <div class="absolute top-4 left-4"><span class="bg-deep-space/90 text-white font-label-caps text-label-caps px-3 py-1 rounded-full">CoRL 2025</span></div>
-    <div class="absolute top-4 right-4"><span class="bg-primary text-white font-label-caps text-label-caps px-3 py-1 rounded-full">FlexiTac</span></div>
   </div>
   <div class="p-5 flex flex-col flex-grow bg-surface-base border-t border-outline-variant justify-between">
     <div>
+      <div class="ft-tag ft-tag-built">Built with FlexiTac</div>
       <h3 class="font-headline-lg-mobile text-headline-lg-mobile xl:text-lg text-deep-space mb-2 leading-snug"><!-- detail-link:start --><a href="papers/vt-refine.html" class="hover:text-primary transition-colors">VT-Refine: Learning Bimanual Assembly with Visuo-Tactile Feedback via Simulation Fine-Tuning</a><!-- detail-link:end --></h3>
       <p class="authors text-sm text-secondary line-clamp-2"><a href="https://binghao-huang.github.io/">Binghao Huang</a>, <a href="https://people.csail.mit.edu/jiex/">Jie Xu</a>, <a href="https://research.nvidia.com/person/iretiayo-akinola">Iretiayo Akinola</a>, <a href="https://wyang.me/">Wei Yang</a>, <a href="https://balakumar-s.github.io/">Balakumar Sundaralingam</a>, <a href="https://www.linkedin.com/in/rowlandoflaherty/">Rowland O'Flaherty</a>, <a href="https://homes.cs.washington.edu/~fox/">Dieter Fox</a>, <a href="https://xiaolonw.github.io/">Xiaolong Wang</a>, <a href="https://cs.gmu.edu/~amousavi/">Arsalan Mousavian</a>, <a href="https://research.nvidia.com/person/yu-wei-chao">Yu-Wei Chao</a>, <a href="https://yunzhuli.github.io/">Yunzhu Li</a></p>
       <p class="text-xs text-safety-accent font-semibold mt-1.5"><a href="https://fsie-robotics.com/IROS2025-Workshop-AHFHR/" target="_blank" rel="noopener" class="hover:underline">Best Paper Award — IROS 2025 AHFHR Workshop</a></p>
@@ -324,15 +321,15 @@
   </div>
 </article>
 
-<!-- 3. Touch in the Wild -->
-<article data-category="Multi-Modal Learning, Dataset" class="gallery-card bg-surface-subtle border border-outline-variant rounded-lg overflow-hidden card-hover transition-all duration-300 flex flex-col group">
+<!-- 2. VT-Refine -->
+<article data-flexitac="built" data-category="Multi-Modal Learning, Dataset" class="gallery-card bg-surface-subtle border border-outline-variant rounded-lg overflow-hidden card-hover transition-all duration-300 flex flex-col group">
   <div class="relative aspect-video bg-surface-container-low overflow-hidden">
     <!-- detail-link:start --><a href="papers/touch-in-the-wild.html" class="block w-full h-full" aria-label="View project details"><video class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-in-out" muted autoplay loop playsinline preload="none"><source src="static/videos/touchinthewild.mp4" type="video/mp4"/></video></a><!-- detail-link:end -->
     <div class="absolute top-4 left-4"><span class="bg-deep-space/90 text-white font-label-caps text-label-caps px-3 py-1 rounded-full">NeurIPS 2025</span></div>
-    <div class="absolute top-4 right-4"><span class="bg-primary text-white font-label-caps text-label-caps px-3 py-1 rounded-full">FlexiTac</span></div>
   </div>
   <div class="p-5 flex flex-col flex-grow bg-surface-base border-t border-outline-variant justify-between">
     <div>
+      <div class="ft-tag ft-tag-built">Built with FlexiTac</div>
       <h3 class="font-headline-lg-mobile text-headline-lg-mobile xl:text-lg text-deep-space mb-2 leading-snug"><!-- detail-link:start --><a href="papers/touch-in-the-wild.html" class="hover:text-primary transition-colors">Touch in the Wild: Learning Fine-Grained Manipulation with a Portable Visuo-Tactile Gripper</a><!-- detail-link:end --></h3>
       <p class="authors text-sm text-secondary line-clamp-2">Xinyue Zhu<sup>*</sup>, <a href="https://binghao-huang.github.io/">Binghao Huang</a><sup>*</sup>, <a href="https://yunzhuli.github.io/">Yunzhu Li</a></p>
       <p class="text-xs text-safety-accent font-semibold mt-1.5"><a href="https://rss-hardware-intelligence.github.io/" target="_blank" rel="noopener" class="hover:underline">Best Demo Award — RSS 2025 Workshop on Robot Hardware-Aware Intelligence</a></p>
@@ -349,14 +346,15 @@
   </div>
 </article>
 
-<!-- 18. Analog Devices — Industry Deployment (external feature, links to analog.com) -->
-<article data-category="Hardware Design, Industry Deployment" class="gallery-card bg-surface-subtle border border-outline-variant rounded-lg overflow-hidden card-hover transition-all duration-300 flex flex-col group">
+<!-- 3. Touch in the Wild -->
+<article data-flexitac="inspired" data-category="Hardware Design, Industry Deployment" class="gallery-card bg-surface-subtle border border-outline-variant rounded-lg overflow-hidden card-hover transition-all duration-300 flex flex-col group">
   <div class="relative aspect-video bg-surface-container-low overflow-hidden">
     <a href="https://www.analog.com/en/ai/the-future-of-tactile-sensing.html" target="_blank" rel="noopener" class="block w-full h-full" aria-label="Read the Analog Devices feature on tactile sensing"><img alt="Analog Devices tactile sensor held in a 3D-printed gripper" loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-in-out" src="static/images/analog_tactile.jpg"/></a>
     <div class="absolute top-4 right-4 flex flex-col items-end gap-1.5"><span class="bg-deep-space/90 text-white font-label-caps text-label-caps px-3 py-1 rounded-full">Analog Devices</span><span class="bg-tertiary text-white font-label-caps text-label-caps px-3 py-1 rounded-full">Industry Deployment</span></div>
   </div>
   <div class="p-5 flex flex-col flex-grow bg-surface-base border-t border-outline-variant justify-between">
     <div>
+      <div class="ft-tag ft-tag-inspired">Inspired by FlexiTac</div>
       <h3 class="font-headline-lg-mobile text-headline-lg-mobile xl:text-lg text-deep-space mb-2 leading-snug"><a href="https://www.analog.com/en/ai/the-future-of-tactile-sensing.html" target="_blank" rel="noopener" class="hover:text-primary transition-colors">Bringing Human Touch to Robots: The Future of Tactile Sensing</a></h3>
       <p class="authors text-sm text-secondary line-clamp-2">Yuval Zukerman, Tao Yu, Wenjie Lu — Analog Devices, Inc. (ADI)</p>
       <p class="text-xs text-secondary font-semibold mt-1.5">Industrial-grade multimodal tactile sensors — 5× the resolution of a human fingertip, integrating pressure, vibration, and temperature.</p>
@@ -370,14 +368,15 @@
   </div>
 </article>
 
-<!-- 18b. Analog Devices — Industry Deployment (Signals+, external, links to analog.com) -->
-<article data-category="Hardware Design, Industry Deployment" class="gallery-card bg-surface-subtle border border-outline-variant rounded-lg overflow-hidden card-hover transition-all duration-300 flex flex-col group">
+<!-- 18. Analog Devices — Industry Deployment (external feature, links to analog.com) -->
+<article data-flexitac="inspired" data-category="Hardware Design, Industry Deployment" class="gallery-card bg-surface-subtle border border-outline-variant rounded-lg overflow-hidden card-hover transition-all duration-300 flex flex-col group">
   <div class="relative aspect-video bg-surface-container-low overflow-hidden">
     <a href="https://www.analog.com/en/signals/articles/the-touch-that-will-transform-robotics.html" target="_blank" rel="noopener" class="block w-full h-full" aria-label="Read the Analog Devices Signals+ feature on tactile sensing"><img alt="Robotic gripper performing an industrial manipulation demo with multimodal tactile sensing" loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-in-out" src="static/images/adi_gripper_demo.gif"/></a>
     <div class="absolute top-4 right-4 flex flex-col items-end gap-1.5"><span class="bg-deep-space/90 text-white font-label-caps text-label-caps px-3 py-1 rounded-full">Analog Devices</span><span class="bg-tertiary text-white font-label-caps text-label-caps px-3 py-1 rounded-full">Industry Deployment</span></div>
   </div>
   <div class="p-5 flex flex-col flex-grow bg-surface-base border-t border-outline-variant justify-between">
     <div>
+      <div class="ft-tag ft-tag-inspired">Inspired by FlexiTac</div>
       <h3 class="font-headline-lg-mobile text-headline-lg-mobile xl:text-lg text-deep-space mb-2 leading-snug"><a href="https://www.analog.com/en/signals/articles/the-touch-that-will-transform-robotics.html" target="_blank" rel="noopener" class="hover:text-primary transition-colors">Tactile Sensors: The Touch that will Transform Robotics</a></h3>
       <p class="authors text-sm text-secondary line-clamp-2">Analog Devices, Inc. (ADI) — Signals+</p>
       <p class="text-xs text-secondary font-semibold mt-1.5">Multimodal fingertip sensing (pressure, temperature, audio, accelerometer) fused with AI for real-time slip prevention and dexterous humanoid manipulation.</p>
@@ -391,14 +390,14 @@
   </div>
 </article>
 
-<!-- 4. LeFlexiTac -->
-<article data-category="Multi-Modal Learning" class="gallery-card bg-surface-subtle border border-outline-variant rounded-lg overflow-hidden card-hover transition-all duration-300 flex flex-col group">
+<!-- 18b. Analog Devices — Industry Deployment (Signals+, external, links to analog.com) -->
+<article data-flexitac="built" data-category="Multi-Modal Learning" class="gallery-card bg-surface-subtle border border-outline-variant rounded-lg overflow-hidden card-hover transition-all duration-300 flex flex-col group">
   <div class="relative aspect-video bg-surface-container-low overflow-hidden">
     <!-- detail-link:start --><a href="papers/leflexitac.html" class="block w-full h-full" aria-label="View project details"><video class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-in-out" muted autoplay loop playsinline preload="none"><source src="static/videos/leflexitac.mp4" type="video/mp4"/></video></a><!-- detail-link:end -->
-    <div class="absolute top-4 right-4"><span class="bg-primary text-white font-label-caps text-label-caps px-3 py-1 rounded-full">FlexiTac</span></div>
   </div>
   <div class="p-5 flex flex-col flex-grow bg-surface-base border-t border-outline-variant justify-between">
     <div>
+      <div class="ft-tag ft-tag-built">Built with FlexiTac</div>
       <h3 class="font-headline-lg-mobile text-headline-lg-mobile xl:text-lg text-deep-space mb-2 leading-snug"><!-- detail-link:start --><a href="papers/leflexitac.html" class="hover:text-primary transition-colors">LeFlexiTac: Giving Robots a Sense of Touch</a><!-- detail-link:end --></h3>
       <p class="authors text-sm text-secondary line-clamp-2"><a href="https://tna001-ai.github.io/" target="_blank" rel="noopener">Naian Tao</a>, <a href="https://heyifan740-code.github.io/" target="_blank" rel="noopener">Yifan He</a><sup>*</sup>, <a href="https://wesleymaa.com/" target="_blank" rel="noopener">Wesley Maa</a><sup>*</sup>, <a href="https://binghao-huang.github.io/">Binghao Huang</a>, <a href="https://yunzhuli.github.io/">Yunzhu Li</a></p>
     </div>
@@ -413,15 +412,15 @@
   </div>
 </article>
 
-<!-- 5. Multi-Modal Policy Consensus -->
-<article data-category="Multi-Modal Learning" class="gallery-card bg-surface-subtle border border-outline-variant rounded-lg overflow-hidden card-hover transition-all duration-300 flex flex-col group">
+<!-- 4. LeFlexiTac -->
+<article data-flexitac="built" data-category="Multi-Modal Learning" class="gallery-card bg-surface-subtle border border-outline-variant rounded-lg overflow-hidden card-hover transition-all duration-300 flex flex-col group">
   <div class="relative aspect-video bg-surface-container-low overflow-hidden">
     <!-- detail-link:start --><a href="papers/policy-consensus.html" class="block w-full h-full" aria-label="View project details"><video class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-in-out" muted autoplay loop playsinline preload="none"><source src="static/videos/policyconsensus.mp4" type="video/mp4"/></video></a><!-- detail-link:end -->
     <div class="absolute top-4 left-4"><span class="bg-deep-space/90 text-white font-label-caps text-label-caps px-3 py-1 rounded-full">ICRA 2026</span></div>
-    <div class="absolute top-4 right-4"><span class="bg-primary text-white font-label-caps text-label-caps px-3 py-1 rounded-full">FlexiTac</span></div>
   </div>
   <div class="p-5 flex flex-col flex-grow bg-surface-base border-t border-outline-variant justify-between">
     <div>
+      <div class="ft-tag ft-tag-built">Built with FlexiTac</div>
       <h3 class="font-headline-lg-mobile text-headline-lg-mobile xl:text-lg text-deep-space mb-2 leading-snug"><!-- detail-link:start --><a href="papers/policy-consensus.html" class="hover:text-primary transition-colors">Multi-Modal Manipulation via Multi-Modal Policy Consensus</a><!-- detail-link:end --></h3>
       <p class="authors text-sm text-secondary line-clamp-2"><a href="https://haonan16.github.io/">Haonan Chen</a>, <a href="https://www.linkedin.com/in/jiaming-xu-7b4857264/">Jiaming Xu</a><sup>*</sup>, <a href="https://www.linkedin.com/in/hongyu-chen-91996b22b">Hongyu Chen</a><sup>*</sup>, <a href="https://www.linkedin.com/in/kaiwen-hong-524520141/?locale=en_US">Kaiwen Hong</a>, <a href="https://binghao-huang.github.io/">Binghao Huang</a>, <a href="https://chaoqi-liu.com/">Chaoqi Liu</a>, <a href="https://jiayuanm.com/">Jiayuan Mao</a>, <a href="https://yunzhuli.github.io/">Yunzhu Li</a>, <a href="https://yilundu.github.io/">Yilun Du</a><sup>+</sup>, <a href="https://krdc.web.illinois.edu/">Katherine Driggs-Campbell</a><sup>+</sup></p>
       <p class="text-xs text-safety-accent font-semibold mt-1.5"><a href="https://sense-of-space.github.io/" target="_blank" rel="noopener" class="hover:underline">Best Paper Award — CVPR 2026 Workshop on Multi-Sensory Modeling for Embodied Intelligence</a></p>
@@ -440,15 +439,15 @@
   </div>
 </article>
 
-<!-- 7. Tactile-Reactive Gripper (npj) -->
-<article data-category="Hardware Design" class="gallery-card bg-surface-subtle border border-outline-variant rounded-lg overflow-hidden card-hover transition-all duration-300 flex flex-col group">
+<!-- 5. Multi-Modal Policy Consensus -->
+<article data-flexitac="built" data-category="Hardware Design" class="gallery-card bg-surface-subtle border border-outline-variant rounded-lg overflow-hidden card-hover transition-all duration-300 flex flex-col group">
   <div class="relative aspect-video bg-surface-container-low overflow-hidden">
     <!-- detail-link:start --><a href="papers/reactive-gripper.html" class="block w-full h-full" aria-label="View project details"><video class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-in-out" muted autoplay loop playsinline preload="none"><source src="static/videos/npj25.mp4" type="video/mp4"/></video></a><!-- detail-link:end -->
     <div class="absolute top-4 left-4"><span class="bg-deep-space/90 text-white font-label-caps text-label-caps px-3 py-1 rounded-full">npj Robotics 2026</span></div>
-    <div class="absolute top-4 right-4"><span class="bg-primary text-white font-label-caps text-label-caps px-3 py-1 rounded-full">FlexiTac</span></div>
   </div>
   <div class="p-5 flex flex-col flex-grow bg-surface-base border-t border-outline-variant justify-between">
     <div>
+      <div class="ft-tag ft-tag-built">Built with FlexiTac</div>
       <h3 class="font-headline-lg-mobile text-headline-lg-mobile xl:text-lg text-deep-space mb-2 leading-snug"><!-- detail-link:start --><a href="papers/reactive-gripper.html" class="hover:text-primary transition-colors">Tactile-Reactive Gripper with an Active Palm for Dexterous Manipulation</a><!-- detail-link:end --></h3>
       <p class="authors text-sm text-secondary line-clamp-2">Yuhao Zhou, <a href="https://abe.ufl.edu/people/faculty/wonsuk-lee/">Won Suk Lee</a>, <a href="https://www.thetracelab.com/ygu.html">Yan Gu</a>, <a href="https://engineering.purdue.edu/IE/people/ptProfile?resource_id=256650">Yu She</a></p>
     </div>
@@ -462,14 +461,14 @@
   </div>
 </article>
 
-<!-- 8. Object Pose Estimation -->
-<article data-category="Multi-Modal Learning" class="gallery-card bg-surface-subtle border border-outline-variant rounded-lg overflow-hidden card-hover transition-all duration-300 flex flex-col group">
+<!-- 7. Tactile-Reactive Gripper (npj) -->
+<article data-flexitac="built" data-category="Multi-Modal Learning" class="gallery-card bg-surface-subtle border border-outline-variant rounded-lg overflow-hidden card-hover transition-all duration-300 flex flex-col group">
   <div class="relative aspect-video bg-surface-container-low overflow-hidden">
     <!-- detail-link:start --><a href="papers/object-pose.html" class="block w-full h-full" aria-label="View project details"><img alt="Object Pose Estimation through Dexterous Touch" loading="lazy" class="w-full h-full object-contain bg-surface-container-low group-hover:scale-105 transition-transform duration-700 ease-in-out" src="static/images/object_pose.jpg"/></a><!-- detail-link:end -->
-    <div class="absolute top-4 right-4"><span class="bg-primary text-white font-label-caps text-label-caps px-3 py-1 rounded-full">FlexiTac</span></div>
   </div>
   <div class="p-5 flex flex-col flex-grow bg-surface-base border-t border-outline-variant justify-between">
     <div>
+      <div class="ft-tag ft-tag-built">Built with FlexiTac</div>
       <h3 class="font-headline-lg-mobile text-headline-lg-mobile xl:text-lg text-deep-space mb-2 leading-snug"><!-- detail-link:start --><a href="papers/object-pose.html" class="hover:text-primary transition-colors">Object Pose Estimation through Dexterous Touch</a><!-- detail-link:end --></h3>
       <p class="authors text-sm text-secondary line-clamp-2"><a href="https://amirshahid.github.io">Amir-Hossein Shahidzadeh</a><sup>*</sup>, <a href="https://jiyuezh.github.io/">Jiyue Zhu</a><sup>*</sup>, <a href="https://jiyuezh.github.io/">Kezhou Chen</a>, <a href="https://www.cs.cmu.edu/~shayi/">Sha Yi</a>, <a href="http://www.cfar.umd.edu/~fer/">Cornelia Fermüller</a>, <a href="http://www.cfar.umd.edu/~yiannis/">Yiannis Aloimonos</a>, <a href="https://xiaolonw.github.io/">Xiaolong Wang</a></p>
     </div>
@@ -483,15 +482,15 @@
   </div>
 </article>
 
-<!-- 9. Force-Regulated Gripper -->
-<article data-category="Hardware Design" class="gallery-card bg-surface-subtle border border-outline-variant rounded-lg overflow-hidden card-hover transition-all duration-300 flex flex-col group">
+<!-- 8. Object Pose Estimation -->
+<article data-flexitac="built" data-category="Hardware Design" class="gallery-card bg-surface-subtle border border-outline-variant rounded-lg overflow-hidden card-hover transition-all duration-300 flex flex-col group">
   <div class="relative aspect-video bg-surface-container-low overflow-hidden">
     <!-- detail-link:start --><a href="papers/force-gripper.html" class="block w-full h-full" aria-label="View project details"><video class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-in-out" muted autoplay loop playsinline preload="none"><source src="static/videos/reactive_gripper.mp4" type="video/mp4"/></video></a><!-- detail-link:end -->
     <div class="absolute top-4 left-4"><span class="bg-surface-container-high text-on-surface-variant font-label-caps text-label-caps px-3 py-1 rounded-full">Under Review</span></div>
-    <div class="absolute top-4 right-4"><span class="bg-primary text-white font-label-caps text-label-caps px-3 py-1 rounded-full">FlexiTac</span></div>
   </div>
   <div class="p-5 flex flex-col flex-grow bg-surface-base border-t border-outline-variant justify-between">
     <div>
+      <div class="ft-tag ft-tag-built">Built with FlexiTac</div>
       <h3 class="font-headline-lg-mobile text-headline-lg-mobile xl:text-lg text-deep-space mb-2 leading-snug"><!-- detail-link:start --><a href="papers/force-gripper.html" class="hover:text-primary transition-colors">Learning Force-Regulated Manipulation with a Low-Cost Tactile-Force-Controlled Gripper</a><!-- detail-link:end --></h3>
       <p class="authors text-sm text-secondary line-clamp-2"><a href="https://scholar.google.com/citations?user=sIY8FtgAAAAJ&hl=en">Xuhui Kang</a><sup>*</sup>, <a href="https://tongxuan259.github.io">Tongxuan Tian</a><sup>*</sup>, <a href="https://scholar.google.com/citations?user=sIY8FtgAAAAJ&hl=en">Sung-Wook Lee</a>, <a href="https://binghao-huang.github.io/">Binghao Huang</a>, <a href="https://yunzhuli.github.io/">Yunzhu Li</a>, <a href="https://yenlingkuo.com/">Yen-Ling Kuo</a></p>
     </div>
@@ -506,15 +505,15 @@
   </div>
 </article>
 
-<!-- 10. TacVLA -->
-<article data-category="Multi-Modal Learning" class="gallery-card bg-surface-subtle border border-outline-variant rounded-lg overflow-hidden card-hover transition-all duration-300 flex flex-col group">
+<!-- 9. Force-Regulated Gripper -->
+<article data-flexitac="built" data-category="Multi-Modal Learning" class="gallery-card bg-surface-subtle border border-outline-variant rounded-lg overflow-hidden card-hover transition-all duration-300 flex flex-col group">
   <div class="relative aspect-video bg-surface-container-low overflow-hidden">
     <!-- detail-link:start --><a href="papers/tacvla.html" class="block w-full h-full" aria-label="View project details"><video class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-in-out" muted autoplay loop playsinline preload="none"><source src="static/videos/tacvla.mp4" type="video/mp4"/></video></a><!-- detail-link:end -->
     <div class="absolute top-4 left-4"><span class="bg-deep-space/90 text-white font-label-caps text-label-caps px-3 py-1 rounded-full">IROS 2026</span></div>
-    <div class="absolute top-4 right-4"><span class="bg-primary text-white font-label-caps text-label-caps px-3 py-1 rounded-full">FlexiTac</span></div>
   </div>
   <div class="p-5 flex flex-col flex-grow bg-surface-base border-t border-outline-variant justify-between">
     <div>
+      <div class="ft-tag ft-tag-built">Built with FlexiTac</div>
       <h3 class="font-headline-lg-mobile text-headline-lg-mobile xl:text-lg text-deep-space mb-2 leading-snug"><!-- detail-link:start --><a href="papers/tacvla.html" class="hover:text-primary transition-colors">TacVLA: Contact-Aware Tactile Fusion for Robust Vision-Language-Action Manipulation</a><!-- detail-link:end --></h3>
       <p class="authors text-sm text-secondary line-clamp-2"><a href="https://scholar.google.com/citations?user=k8jtXiwAAAAJ&hl=en&inst=5549692440350501774">Kaidi Zhang</a><sup>*</sup>, <a href="https://jack-sherman01.github.io/alfredo/">Heng Zhang</a><sup>*</sup>, Zhengtong Xu, Zhiyuan Zhang, MD Rakibul Islam Prince, Li Xiang, Xiaojing Han, <a href="https://yuhao-zhou.com/">Yuhao Zhou</a>, <a href="https://www.iit.it/it/people-profile/-/people/arash-ajoudani">Arash Ajoudani</a>, <a href="https://engineering.purdue.edu/IE/people/ptProfile?resource_id=256650">Yu She</a></p>
     </div>
@@ -528,15 +527,15 @@
   </div>
 </article>
 
-<!-- 11. VTAP Gripper -->
-<article data-category="Hardware Design" class="gallery-card bg-surface-subtle border border-outline-variant rounded-lg overflow-hidden card-hover transition-all duration-300 flex flex-col group">
+<!-- 10. TacVLA -->
+<article data-flexitac="built" data-category="Hardware Design" class="gallery-card bg-surface-subtle border border-outline-variant rounded-lg overflow-hidden card-hover transition-all duration-300 flex flex-col group">
   <div class="relative aspect-video bg-surface-container-low overflow-hidden">
     <!-- detail-link:start --><a href="papers/vtap-gripper.html" class="block w-full h-full" aria-label="View project details"><video class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-in-out" muted autoplay loop playsinline preload="none"><source src="static/videos/VTAC.mp4" type="video/mp4"/></video></a><!-- detail-link:end -->
     <div class="absolute top-4 left-4"><span class="bg-deep-space/90 text-white font-label-caps text-label-caps px-3 py-1 rounded-full">IROS 2026</span></div>
-    <div class="absolute top-4 right-4"><span class="bg-primary text-white font-label-caps text-label-caps px-3 py-1 rounded-full">FlexiTac</span></div>
   </div>
   <div class="p-5 flex flex-col flex-grow bg-surface-base border-t border-outline-variant justify-between">
     <div>
+      <div class="ft-tag ft-tag-built">Built with FlexiTac</div>
       <h3 class="font-headline-lg-mobile text-headline-lg-mobile xl:text-lg text-deep-space mb-2 leading-snug"><!-- detail-link:start --><a href="papers/vtap-gripper.html" class="hover:text-primary transition-colors">VTAP Gripper: Synergizing Fingertip Sensing and a Visuo-Tactile Active Palm for Dexterous In-Hand Manipulation</a><!-- detail-link:end --></h3>
       <p class="authors text-sm text-secondary line-clamp-2"><a href="https://yuhao-zhou.com/">Yuhao Zhou</a>, <a href="https://sheerazathar.github.io/">Sheeraz Athar</a><sup>*</sup>, <a href="https://zhixianhu.github.io/">Zhixian Hu</a><sup>*</sup>, <a href="https://binghao-huang.github.io/" target="_blank">Binghao Huang</a>, <a href="https://yunzhuli.github.io/" target="_blank">Yunzhu Li</a>, <a href="https://scholar.google.com/citations?user=b_SIiBgAAAAJ&hl=en" target="_blank">Juan Wachs</a>, <a href="https://engineering.purdue.edu/IE/people/ptProfile?resource_id=256650" target="_blank">Yu She</a></p>
     </div>
@@ -550,15 +549,15 @@
   </div>
 </article>
 
-<!-- 12. Quadrupedal Loco-Manipulation -->
-<article data-category="Locomanipulation" class="gallery-card bg-surface-subtle border border-outline-variant rounded-lg overflow-hidden card-hover transition-all duration-300 flex flex-col group">
+<!-- 11. VTAP Gripper -->
+<article data-flexitac="built" data-category="Locomanipulation" class="gallery-card bg-surface-subtle border border-outline-variant rounded-lg overflow-hidden card-hover transition-all duration-300 flex flex-col group">
   <div class="relative aspect-video bg-surface-container-low overflow-hidden">
     <!-- detail-link:start --><a href="papers/quad-locomanip.html" class="block w-full h-full" aria-label="View project details"><img alt="Tactile-Aware Quadrupedal Loco-Manipulation" loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-in-out" src="static/images/go2umitac.jpg"/></a><!-- detail-link:end -->
     <div class="absolute top-4 left-4"><span class="bg-deep-space/90 text-white font-label-caps text-label-caps px-3 py-1 rounded-full">IROS 2026</span></div>
-    <div class="absolute top-4 right-4"><span class="bg-primary text-white font-label-caps text-label-caps px-3 py-1 rounded-full">FlexiTac</span></div>
   </div>
   <div class="p-5 flex flex-col flex-grow bg-surface-base border-t border-outline-variant justify-between">
     <div>
+      <div class="ft-tag ft-tag-built">Built with FlexiTac</div>
       <h3 class="font-headline-lg-mobile text-headline-lg-mobile xl:text-lg text-deep-space mb-2 leading-snug"><!-- detail-link:start --><a href="papers/quad-locomanip.html" class="hover:text-primary transition-colors">Learning Tactile-Aware Quadrupedal Loco-Manipulation Policies</a><!-- detail-link:end --></h3>
       <p class="authors text-sm text-secondary line-clamp-2"><a href="https://scholar.google.com/citations?user=GSEFMvQAAAAJ&hl=en" target="_blank">Pokuang Zhou</a>, Yuhao Zhou, <a href="https://quan-luu.github.io/" target="_blank">Quan Luu</a>, Seungho Han, <a href="https://jack-sherman01.github.io/alfredo/" target="_blank">Heng Zhang</a>, <a href="https://binghao-huang.github.io/" target="_blank">Binghao Huang</a>, <a href="https://yunzhuli.github.io/" target="_blank">Yunzhu Li</a>, <a href="https://www.iit.it/it/people-profile/-/people/arash-ajoudani">Arash Ajoudani</a>, Zhengtong Xu, <a href="https://engineering.purdue.edu/IE/people/ptProfile?resource_id=256650">Yu She</a></p>
     </div>
@@ -571,15 +570,15 @@
   </div>
 </article>
 
-<!-- 12b. TAC-LOCO -->
-<article data-category="Locomanipulation" class="gallery-card bg-surface-subtle border border-outline-variant rounded-lg overflow-hidden card-hover transition-all duration-300 flex flex-col group">
+<!-- 12. Quadrupedal Loco-Manipulation -->
+<article data-flexitac="built" data-category="Locomanipulation" class="gallery-card bg-surface-subtle border border-outline-variant rounded-lg overflow-hidden card-hover transition-all duration-300 flex flex-col group">
   <div class="relative aspect-video bg-surface-container-low overflow-hidden">
     <!-- detail-link:start --><a href="papers/tacloco.html" class="block w-full h-full" aria-label="View project details"><img alt="TAC-LOCO: Unified Whole-Body Control for Quadrupedal TACtile-Informed LOCO-Manipulation" loading="lazy" class="w-full h-full object-cover object-right group-hover:scale-105 transition-transform duration-700 ease-in-out" src="static/images/tacloco.jpg"/></a><!-- detail-link:end -->
     <div class="absolute top-4 left-4"><span class="bg-surface-container-high text-on-surface-variant font-label-caps text-label-caps px-3 py-1 rounded-full">Under Review</span></div>
-    <div class="absolute top-4 right-4"><span class="bg-primary text-white font-label-caps text-label-caps px-3 py-1 rounded-full">FlexiTac</span></div>
   </div>
   <div class="p-5 flex flex-col flex-grow bg-surface-base border-t border-outline-variant justify-between">
     <div>
+      <div class="ft-tag ft-tag-built">Built with FlexiTac</div>
       <h3 class="font-headline-lg-mobile text-headline-lg-mobile xl:text-lg text-deep-space mb-2 leading-snug"><!-- detail-link:start --><a href="papers/tacloco.html" class="hover:text-primary transition-colors">TAC-LOCO: Unified Whole-Body Control for Quadrupedal TACtile-Informed LOCO-Manipulation</a><!-- detail-link:end --></h3>
       <p class="authors text-sm text-secondary line-clamp-2"><a href="https://scholar.google.com/citations?user=6o467LsAAAAJ&hl=en" target="_blank">Muqun Hu</a><sup>*</sup>, <a href="https://yuhao-zhou.com/" target="_blank">Yuhao Zhou</a><sup>*</sup>, Kabir Ray Malik, Chi Lin, <a href="https://abe.ufl.edu/people/faculty/wonsuk-lee/" target="_blank">Won Suk Lee</a>, <a href="https://engineering.purdue.edu/IE/people/ptProfile?resource_id=256650">Yu She</a>, <a href="https://www.thetracelab.com/ygu.html" target="_blank">Yan Gu</a></p>
     </div>
@@ -592,15 +591,15 @@
   </div>
 </article>
 
-<!-- 13. TacCoRL -->
-<article data-category="Simulation" class="gallery-card bg-surface-subtle border border-outline-variant rounded-lg overflow-hidden card-hover transition-all duration-300 flex flex-col group">
+<!-- 12b. TAC-LOCO -->
+<article data-flexitac="built" data-category="Simulation" class="gallery-card bg-surface-subtle border border-outline-variant rounded-lg overflow-hidden card-hover transition-all duration-300 flex flex-col group">
   <div class="relative aspect-video bg-surface-container-low overflow-hidden">
     <!-- detail-link:start --><a href="papers/taccorl.html" class="block w-full h-full" aria-label="View project details"><video class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-in-out" muted autoplay loop playsinline preload="none"><source src="static/videos/taccorl.mp4" type="video/mp4"/></video></a><!-- detail-link:end -->
     <div class="absolute top-4 left-4"><span class="bg-surface-container-high text-on-surface-variant font-label-caps text-label-caps px-3 py-1 rounded-full">Under Review</span></div>
-    <div class="absolute top-4 right-4"><span class="bg-primary text-white font-label-caps text-label-caps px-3 py-1 rounded-full">FlexiTac</span></div>
   </div>
   <div class="p-5 flex flex-col flex-grow bg-surface-base border-t border-outline-variant justify-between">
     <div>
+      <div class="ft-tag ft-tag-built">Built with FlexiTac</div>
       <h3 class="font-headline-lg-mobile text-headline-lg-mobile xl:text-lg text-deep-space mb-2 leading-snug"><!-- detail-link:start --><a href="papers/taccorl.html" class="hover:text-primary transition-colors">TacCoRL: Integrating Tactile Feedback into VLA via Simulation</a><!-- detail-link:end --></h3>
       <p class="authors text-sm text-secondary line-clamp-2"><a href="https://bell0o.github.io/">Siyu Ma</a><sup>*</sup>, Yuqi Liang<sup>*</sup>, Chang Yu<sup>*+</sup>, Yunuo Chen, Hao Su, Yixin Zhu, Yin Yang, Chenfanfu Jiang</p>
     </div>
@@ -614,15 +613,15 @@
   </div>
 </article>
 
-<!-- 14. WT-UMI -->
-<article data-category="Hardware Design, Locomanipulation" class="gallery-card bg-surface-subtle border border-outline-variant rounded-lg overflow-hidden card-hover transition-all duration-300 flex flex-col group">
+<!-- 13. TacCoRL -->
+<article data-flexitac="built" data-category="Hardware Design, Locomanipulation" class="gallery-card bg-surface-subtle border border-outline-variant rounded-lg overflow-hidden card-hover transition-all duration-300 flex flex-col group">
   <div class="relative aspect-video bg-surface-container-low overflow-hidden">
     <!-- detail-link:start --><a href="papers/wt-umi.html" class="block w-full h-full" aria-label="View project details"><video class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-in-out" muted autoplay loop playsinline preload="none"><source src="static/videos/wtumi_beam.mp4" type="video/mp4"/></video></a><!-- detail-link:end -->
     <div class="absolute top-4 left-4"><span class="bg-surface-container-high text-on-surface-variant font-label-caps text-label-caps px-3 py-1 rounded-full">Under Review</span></div>
-    <div class="absolute top-4 right-4"><span class="bg-primary text-white font-label-caps text-label-caps px-3 py-1 rounded-full">FlexiTac</span></div>
   </div>
   <div class="p-5 flex flex-col flex-grow bg-surface-base border-t border-outline-variant justify-between">
     <div>
+      <div class="ft-tag ft-tag-built">Built with FlexiTac</div>
       <h3 class="font-headline-lg-mobile text-headline-lg-mobile xl:text-lg text-deep-space mb-2 leading-snug"><!-- detail-link:start --><a href="papers/wt-umi.html" class="hover:text-primary transition-colors">WT-UMI: Tactile UMI for Force-Supervised Humanoid Manipulation</a><!-- detail-link:end --></h3>
       <p class="authors text-sm text-secondary line-clamp-2">Jaehwi Jang<sup>*</sup>, Zhaoyuan Gu<sup>*</sup>, Alfred Cueva, Zimeng Chai, Junjie Sheng, Thong Nguyen, Himank Galundia, Yifan Wu, Huishu Xue, Isaac Legene, Ojas Mediratta, Davin Doan, Andrew Collins, Sarah Sadegh, KyoungMok Kim, Rishita Dhalbisoi, Zun Chen, <a href="https://lab-idar.gatech.edu/" target="_blank">Ye Zhao</a></p>
     </div>
@@ -637,14 +636,15 @@
   </div>
 </article>
 
-<!-- 15. HiPi -->
-<article data-category="Hardware Design" class="gallery-card bg-surface-subtle border border-outline-variant rounded-lg overflow-hidden card-hover transition-all duration-300 flex flex-col group">
+<!-- 14. WT-UMI -->
+<article data-flexitac="inspired" data-category="Hardware Design" class="gallery-card bg-surface-subtle border border-outline-variant rounded-lg overflow-hidden card-hover transition-all duration-300 flex flex-col group">
   <div class="relative aspect-video bg-surface-container-low overflow-hidden">
     <!-- detail-link:start --><a href="papers/hipi.html" class="block w-full h-full" aria-label="View project details"><img alt="HiPi sensor structure" loading="lazy" class="w-full h-full object-contain bg-white group-hover:scale-105 transition-transform duration-700 ease-in-out" src="static/images/hipi_fig4.jpg"/></a><!-- detail-link:end -->
     <div class="absolute top-4 left-4"><span class="bg-surface-container-high text-on-surface-variant font-label-caps text-label-caps px-3 py-1 rounded-full">Under Review</span></div>
   </div>
   <div class="p-5 flex flex-col flex-grow bg-surface-base border-t border-outline-variant justify-between">
     <div>
+      <div class="ft-tag ft-tag-inspired">Inspired by FlexiTac</div>
       <h3 class="font-headline-lg-mobile text-headline-lg-mobile xl:text-lg text-deep-space mb-2 leading-snug"><!-- detail-link:start --><a href="papers/hipi.html" class="hover:text-primary transition-colors">HiPi: Reproducible High-Fidelity Piezoresistive Sensors for Robotic Manipulation</a><!-- detail-link:end --></h3>
       <p class="authors text-sm text-secondary line-clamp-2"><a href="https://linchangyi1.github.io/" target="_blank">Changyi Lin</a>, Raihan Haque, Hui-Ping Wang, <a href="https://safeai-lab.github.io/" target="_blank">Ding Zhao</a></p>
     </div>
@@ -657,14 +657,15 @@
   </div>
 </article>
 
-<!-- 16. ART-Glove -->
-<article data-category="Hardware Design, Glove/Hand" class="gallery-card bg-surface-subtle border border-outline-variant rounded-lg overflow-hidden card-hover transition-all duration-300 flex flex-col group">
+<!-- 15. HiPi -->
+<article data-flexitac="inspired" data-category="Hardware Design, Glove/Hand" class="gallery-card bg-surface-subtle border border-outline-variant rounded-lg overflow-hidden card-hover transition-all duration-300 flex flex-col group">
   <div class="relative aspect-video bg-surface-container-low overflow-hidden">
     <!-- detail-link:start --><a href="papers/art-glove.html" class="block w-full h-full" aria-label="View project details"><video class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-in-out" muted autoplay loop playsinline preload="none"><source src="static/videos/artglove.mp4" type="video/mp4"/></video></a><!-- detail-link:end -->
     <div class="absolute top-4 left-4"><span class="bg-surface-container-high text-on-surface-variant font-label-caps text-label-caps px-3 py-1 rounded-full">Under Review</span></div>
   </div>
   <div class="p-5 flex flex-col flex-grow bg-surface-base border-t border-outline-variant justify-between">
     <div>
+      <div class="ft-tag ft-tag-inspired">Inspired by FlexiTac</div>
       <h3 class="font-headline-lg-mobile text-headline-lg-mobile xl:text-lg text-deep-space mb-2 leading-snug"><!-- detail-link:start --><a href="papers/art-glove.html" class="hover:text-primary transition-colors">ART-Glove: Articulated Tactile Glove for Contact-Grounded Dexterous Interaction Capture</a><!-- detail-link:end --></h3>
       <p class="authors text-sm text-secondary line-clamp-2"><a href="https://linchangyi1.github.io/" target="_blank">Changyi Lin</a>, <a href="https://safeai-lab.github.io/" target="_blank">Ding Zhao</a></p>
     </div>
@@ -678,16 +679,37 @@
     </div>
   </div>
 </article>
-
-<!-- 3b. Deform360 -->
-<article data-category="Dataset, Multi-Modal Learning" class="gallery-card bg-surface-subtle border border-outline-variant rounded-lg overflow-hidden card-hover transition-all duration-300 flex flex-col group">
+<article data-flexitac="inspired" data-category="Hardware Design, Glove/Hand" class="gallery-card bg-surface-subtle border border-outline-variant rounded-lg overflow-hidden card-hover transition-all duration-300 flex flex-col group">
   <div class="relative aspect-video bg-surface-container-low overflow-hidden">
-    <!-- detail-link:start --><a href="papers/deform360.html" class="block w-full h-full" aria-label="View project details"><img alt="Deform360: A Massive Multi-view Visuotactile Dataset for Deformable World Models" loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-in-out" src="static/images/deform360.gif"/></a><!-- detail-link:end -->
-    <div class="absolute top-4 left-4"><span class="bg-deep-space/90 text-white font-label-caps text-label-caps px-3 py-1 rounded-full">ECCV 2026</span></div>
-    <div class="absolute top-4 right-4"><span class="bg-primary text-white font-label-caps text-label-caps px-3 py-1 rounded-full">FlexiTac</span></div>
+    <!-- detail-link:start --><a href="papers/tag-glove.html" class="block w-full h-full" aria-label="View project details"><video class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-700 ease-in-out" style="background:#fffffa;" muted autoplay loop playsinline preload="none"><source src="static/videos/tag-glove.mp4" type="video/mp4"/></video></a><!-- detail-link:end -->
+    <div class="absolute top-4 left-4"><span class="bg-surface-container-high text-on-surface-variant font-label-caps text-label-caps px-3 py-1 rounded-full">Preprint</span></div>
   </div>
   <div class="p-5 flex flex-col flex-grow bg-surface-base border-t border-outline-variant justify-between">
     <div>
+      <div class="ft-tag ft-tag-inspired">Inspired by FlexiTac</div>
+      <h3 class="font-headline-lg-mobile text-headline-lg-mobile xl:text-lg text-deep-space mb-2 leading-snug"><!-- detail-link:start --><a href="papers/tag-glove.html" class="hover:text-primary transition-colors">Feel Robot Feels: Tactile Feedback Array Glove for Dexterous Manipulation</a><!-- detail-link:end --></h3>
+      <p class="authors text-sm text-secondary line-clamp-2"><a href="https://trap-1.github.io/">Feiyu Jia</a><sup>*</sup>, <a href="https://njay12.github.io/">Xiaojie Niu</a><sup>*</sup>, <a href="https://yangsizhe.github.io/">Sizhe Yang</a><sup>*</sup>, <a href="https://www.qingweiben.com/">Qingwei Ben</a>, <a href="https://taohuang13.github.io/">Tao Huang</a>, <a href="https://bivlab123.github.io/">Feng Zhao</a><sup>&dagger;</sup>, <a href="https://wangjingbo1219.github.io/">Jingbo Wang</a><sup>&dagger;</sup>, <a href="https://oceanpang.github.io/">Jiangmiao Pang</a><sup>&dagger;</sup></p>
+    </div>
+    <div class="mt-auto">
+      <div class="flex flex-wrap items-center gap-x-4 gap-y-2 mt-4 pt-3 border-t border-outline-variant/30">
+      <a class="flex items-center gap-1.5 text-primary hover:text-primary-container transition-colors font-label-caps text-label-caps" href="https://trap-1.github.io/TAG.github.io/" target="_blank" rel="noopener"><span class="material-symbols-outlined text-[16px]">public</span>Webpage</a>
+      <a class="flex items-center gap-1.5 text-secondary hover:text-primary transition-colors font-label-caps text-label-caps" href="https://arxiv.org/abs/2603.28542" target="_blank" rel="noopener"><span class="material-symbols-outlined text-[16px]">description</span>Paper</a>
+      <a class="flex items-center gap-1.5 text-secondary hover:text-primary transition-colors font-label-caps text-label-caps" href="https://github.com/InternRobotics/TAG" target="_blank" rel="noopener"><span class="material-symbols-outlined text-[16px]">code</span>Code</a>
+    </div>
+      <a href="papers/tag-glove.html" class="detail-btn mt-4 flex items-center justify-center gap-1.5 w-full bg-secondary-container text-on-secondary-container hover:bg-primary hover:text-white transition-colors font-label-caps text-label-caps px-4 py-2.5 rounded-lg">View Details<span class="material-symbols-outlined text-[16px]">arrow_forward</span></a>
+    </div>
+  </div>
+</article>
+
+<!-- 16. ART-Glove -->
+<article data-flexitac="built" data-category="Dataset, Multi-Modal Learning" class="gallery-card bg-surface-subtle border border-outline-variant rounded-lg overflow-hidden card-hover transition-all duration-300 flex flex-col group">
+  <div class="relative aspect-video bg-surface-container-low overflow-hidden">
+    <!-- detail-link:start --><a href="papers/deform360.html" class="block w-full h-full" aria-label="View project details"><img alt="Deform360: A Massive Multi-view Visuotactile Dataset for Deformable World Models" loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-in-out" src="static/images/deform360.gif"/></a><!-- detail-link:end -->
+    <div class="absolute top-4 left-4"><span class="bg-deep-space/90 text-white font-label-caps text-label-caps px-3 py-1 rounded-full">ECCV 2026</span></div>
+  </div>
+  <div class="p-5 flex flex-col flex-grow bg-surface-base border-t border-outline-variant justify-between">
+    <div>
+      <div class="ft-tag ft-tag-built">Built with FlexiTac</div>
       <h3 class="font-headline-lg-mobile text-headline-lg-mobile xl:text-lg text-deep-space mb-2 leading-snug"><!-- detail-link:start --><a href="papers/deform360.html" class="hover:text-primary transition-colors">Deform360: A Massive Multi-view Visuotactile Dataset for Deformable World Models</a><!-- detail-link:end --></h3>
       <p class="authors text-sm text-secondary line-clamp-2"><a href="https://lhy.xyz/">Hongyu Li</a><sup>*</sup>, <a href="https://wanjia-fu.com/">Wanjia Fu</a><sup>*</sup>, <a href="https://oliver-cong02.github.io/">Xiaoyan Cong</a>, <a href="https://kunkun0w0.github.io/">Zekun Li</a>, <a href="https://binghao-huang.github.io/">Binghao Huang</a>, <a href="https://jianghanxiao.github.io/">Hanxiao Jiang</a>, Xintong He, <a href="https://lynl7130.github.io/">Yiqing Liang</a>, <a href="https://freddierao.github.io/">Rao Fu</a>, <a href="https://inspirelt.github.io/">Tao Lu</a>, <a href="https://cs.brown.edu/people/ssrinath/">Srinath Sridhar</a>, <a href="https://www.mit.edu/~k2smith/">Kevin A. Smith</a>, <a href="https://cs.brown.edu/people/gdk/">George Konidaris</a>, <a href="https://yunzhuli.github.io/">Yunzhu Li</a></p>
       <p class="text-xs text-safety-accent font-semibold mt-1.5">198 objects, 23.3M total frames, and 215.7 h of high-quality visuo-tactile data captured with FlexiTac sensors.</p>
@@ -702,15 +724,15 @@
   </div>
 </article>
 
-<!-- 3c. FELT -->
-<article data-category="Multi-Modal Learning" class="gallery-card bg-surface-subtle border border-outline-variant rounded-lg overflow-hidden card-hover transition-all duration-300 flex flex-col group">
+<!-- 3b. Deform360 -->
+<article data-flexitac="built" data-category="Multi-Modal Learning" class="gallery-card bg-surface-subtle border border-outline-variant rounded-lg overflow-hidden card-hover transition-all duration-300 flex flex-col group">
   <div class="relative aspect-video bg-surface-container-low overflow-hidden">
     <!-- detail-link:start --><a href="papers/felt.html" class="block w-full h-full" aria-label="View project details"><video class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-700 ease-in-out" style="background:#fffffa;" muted autoplay loop playsinline preload="none"><source src="static/videos/felt.mp4" type="video/mp4"/></video></a><!-- detail-link:end -->
     <div class="absolute top-4 left-4"><span class="bg-surface-container-high text-on-surface-variant font-label-caps text-label-caps px-3 py-1 rounded-full">Preprint</span></div>
-    <div class="absolute top-4 right-4"><span class="bg-primary text-white font-label-caps text-label-caps px-3 py-1 rounded-full">FlexiTac</span></div>
   </div>
   <div class="p-5 flex flex-col flex-grow bg-surface-base border-t border-outline-variant justify-between">
     <div>
+      <div class="ft-tag ft-tag-built">Built with FlexiTac</div>
       <h3 class="font-headline-lg-mobile text-headline-lg-mobile xl:text-lg text-deep-space mb-2 leading-snug"><!-- detail-link:start --><a href="papers/felt.html" class="hover:text-primary transition-colors">FELT: Generating Tactile Signals from Vision for Visuo-Tactile Manipulation</a><!-- detail-link:end --></h3>
       <p class="authors text-sm text-secondary line-clamp-2"><a href="https://www.linkedin.com/in/zinanli02/">Zinan Li</a>, <a href="https://yiyang0207.github.io/">Yiyang Ling</a>, <a href="https://freedomgu.github.io/">Yuming Gu</a>, <a href="https://binghao-huang.github.io/">Binghao Huang</a>, Chenhao Liang, Sharfin Islam, Hisham Bedri, John Chirikjian, <a href="https://yunzhuli.github.io/">Yunzhu Li</a>, Stefanos Nikolaidis, <a href="https://danielseita.github.io/">Daniel Seita</a></p>
     </div>
@@ -723,14 +745,16 @@
     </div>
   </div>
 </article>
-<article data-category="Multi-Modal Learning" class="gallery-card bg-surface-subtle border border-outline-variant rounded-lg overflow-hidden card-hover transition-all duration-300 flex flex-col group">
+
+<!-- 3c. FELT -->
+<article data-flexitac="built" data-category="Multi-Modal Learning" class="gallery-card bg-surface-subtle border border-outline-variant rounded-lg overflow-hidden card-hover transition-all duration-300 flex flex-col group">
   <div class="relative aspect-video bg-surface-container-low overflow-hidden">
     <!-- detail-link:start --><a href="papers/tactx.html" class="block w-full h-full" aria-label="View project details"><video class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-700 ease-in-out" style="background:#fffffa;" muted autoplay loop playsinline preload="none"><source src="static/videos/tactx.mp4" type="video/mp4"/></video></a><!-- detail-link:end -->
     <div class="absolute top-4 left-4"><span class="bg-surface-container-high text-on-surface-variant font-label-caps text-label-caps px-3 py-1 rounded-full">Under Review</span></div>
-    <div class="absolute top-4 right-4"><span class="bg-primary text-white font-label-caps text-label-caps px-3 py-1 rounded-full">FlexiTac</span></div>
   </div>
   <div class="p-5 flex flex-col flex-grow bg-surface-base border-t border-outline-variant justify-between">
     <div>
+      <div class="ft-tag ft-tag-built">Built with FlexiTac</div>
       <h3 class="font-headline-lg-mobile text-headline-lg-mobile xl:text-lg text-deep-space mb-2 leading-snug"><!-- detail-link:start --><a href="papers/tactx.html" class="hover:text-primary transition-colors">TactX: Learning Shared Tactile Representations Across Diverse Sensors</a><!-- detail-link:end --></h3>
       <p class="authors text-sm text-secondary line-clamp-2">Junsung Park<sup>*</sup>, Sachin Bhadang<sup>*</sup>, Carmelo Sferrazza, <a href="https://www.cs.cmu.edu/~shayi/">Sha Yi</a>, <a href="https://xiaolonw.github.io/">Xiaolong Wang</a></p>
     </div>
@@ -743,14 +767,14 @@
     </div>
   </div>
 </article>
-<article data-category="Hardware Design, Multi-Modal Learning" class="gallery-card bg-surface-subtle border border-outline-variant rounded-lg overflow-hidden card-hover transition-all duration-300 flex flex-col group">
+<article data-flexitac="built" data-category="Hardware Design, Multi-Modal Learning" class="gallery-card bg-surface-subtle border border-outline-variant rounded-lg overflow-hidden card-hover transition-all duration-300 flex flex-col group">
   <div class="relative aspect-video bg-surface-container-low overflow-hidden">
     <!-- detail-link:start --><a href="papers/haptic-data-collection.html" class="block w-full h-full" aria-label="View project details"><img alt="A Visuo-Tactile Data Collection System with Haptic Feedback for Coarse-to-Fine Imitation Learning" loading="lazy" class="w-full h-full object-contain bg-surface-container-low group-hover:scale-105 transition-transform duration-700 ease-in-out" src="static/images/haptic-data-collection.jpg"/></a><!-- detail-link:end -->
     <div class="absolute top-4 left-4"><span class="bg-surface-container-high text-on-surface-variant font-label-caps text-label-caps px-3 py-1 rounded-full">Preprint</span></div>
-    <div class="absolute top-4 right-4"><span class="bg-primary text-white font-label-caps text-label-caps px-3 py-1 rounded-full">FlexiTac</span></div>
   </div>
   <div class="p-5 flex flex-col flex-grow bg-surface-base border-t border-outline-variant justify-between">
     <div>
+      <div class="ft-tag ft-tag-built">Built with FlexiTac</div>
       <h3 class="font-headline-lg-mobile text-headline-lg-mobile xl:text-lg text-deep-space mb-2 leading-snug"><!-- detail-link:start --><a href="papers/haptic-data-collection.html" class="hover:text-primary transition-colors">A Visuo-Tactile Data Collection System with Haptic Feedback for Coarse-to-Fine Imitation Learning</a><!-- detail-link:end --></h3>
       <p class="authors text-sm text-secondary line-clamp-2">Yeseung Kim<sup>*</sup>, Nayoung Oh<sup>*</sup>, Jun Park<sup>*</sup>, Teetat Thamronglak<sup>*</sup>, Daehyung Park</p>
     </div>
@@ -762,14 +786,14 @@
     </div>
   </div>
 </article>
-<article data-category="Multi-Modal Learning" class="gallery-card bg-surface-subtle border border-outline-variant rounded-lg overflow-hidden card-hover transition-all duration-300 flex flex-col group">
+<article data-flexitac="built" data-category="Multi-Modal Learning" class="gallery-card bg-surface-subtle border border-outline-variant rounded-lg overflow-hidden card-hover transition-all duration-300 flex flex-col group">
   <div class="relative aspect-video bg-surface-container-low overflow-hidden">
     <!-- detail-link:start --><a href="papers/vitas.html" class="block w-full h-full" aria-label="View project details"><img alt="ViTaS: Visual Tactile Soft Fusion Contrastive Learning for Visuomotor Learning" loading="lazy" class="w-full h-full object-contain bg-surface-container-low group-hover:scale-105 transition-transform duration-700 ease-in-out" src="static/images/vitas.jpg"/></a><!-- detail-link:end -->
     <div class="absolute top-4 left-4"><span class="bg-surface-container-high text-on-surface-variant font-label-caps text-label-caps px-3 py-1 rounded-full">ICRA 2026</span></div>
-    <div class="absolute top-4 right-4"><span class="bg-primary text-white font-label-caps text-label-caps px-3 py-1 rounded-full">FlexiTac</span></div>
   </div>
   <div class="p-5 flex flex-col flex-grow bg-surface-base border-t border-outline-variant justify-between">
     <div>
+      <div class="ft-tag ft-tag-built">Built with FlexiTac</div>
       <h3 class="font-headline-lg-mobile text-headline-lg-mobile xl:text-lg text-deep-space mb-2 leading-snug"><!-- detail-link:start --><a href="papers/vitas.html" class="hover:text-primary transition-colors">ViTaS: Visual Tactile Soft Fusion Contrastive Learning for Visuomotor Learning</a><!-- detail-link:end --></h3>
       <p class="authors text-sm text-secondary line-clamp-2"><a href="https://skyrainwind.github.io/">Yufeng Tian</a><sup>*</sup>, <a href="https://shuiqicheng.github.io/">Shuiqi Cheng</a><sup>*</sup>, <a href="https://www.stillwtm.site/">Tianming Wei</a>, <a href="https://github.com/ZTX2021">Tianxing Zhou</a>, <a href="https://yuanhangz.com/">Yuanhang Zhang</a>, <a href="https://storeblank.github.io/">Zixian Liu</a>, <a href="https://der-mark.github.io/">Qianwei Han</a>, <a href="https://gemcollector.github.io/">Zhecheng Yuan</a>, <a href="http://hxu.rocks/">Huazhe Xu</a></p>
     </div>
@@ -783,15 +807,37 @@
     </div>
   </div>
 </article>
+<article data-flexitac="prior" data-category="Hardware Design, Glove/Hand" class="gallery-card bg-surface-subtle border border-outline-variant rounded-lg overflow-hidden card-hover transition-all duration-300 flex flex-col group">
+  <div class="relative aspect-video bg-surface-container-low overflow-hidden">
+    <!-- detail-link:start --><a href="papers/stag.html" class="block w-full h-full" aria-label="View project details"><img alt="Scalable Tactile Glove (STAG)" loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-in-out" src="static/images/stag_glove.png"/></a><!-- detail-link:end -->
+    <div class="absolute top-4 left-4"><span class="bg-deep-space/90 text-white font-label-caps text-label-caps px-3 py-1 rounded-full">Nature 2019</span></div>
+  </div>
+  <div class="p-5 flex flex-col flex-grow bg-surface-base border-t border-outline-variant justify-between">
+    <div>
+      <div class="ft-tag ft-tag-prior">Prior work</div>
+      <h3 class="font-headline-lg-mobile text-headline-lg-mobile xl:text-lg text-deep-space mb-2 leading-snug"><!-- detail-link:start --><a href="papers/stag.html" class="hover:text-primary transition-colors">Learning the Signatures of the Human Grasp Using a Scalable Tactile Glove</a><!-- detail-link:end --></h3>
+      <p class="authors text-sm text-secondary line-clamp-2"><a href="https://subras.github.io/" target="_blank" rel="noopener">Subramanian Sundaram</a>, <a href="https://kellnhofer.xyz/" target="_blank" rel="noopener">Petr Kellnhofer</a>, <a href="https://yunzhuli.github.io/" target="_blank" rel="noopener">Yunzhu Li</a>, <a href="https://www.cs.cmu.edu/~junyanz/" target="_blank" rel="noopener">Jun-Yan Zhu</a>, <a href="https://groups.csail.mit.edu/vision/torralbalab/" target="_blank" rel="noopener">Antonio Torralba</a>, <a href="https://cdfg.csail.mit.edu/wojciech" target="_blank" rel="noopener">Wojciech Matusik</a></p>
+    </div>
+    <div class="mt-auto">
+      <div class="flex flex-wrap items-center gap-x-4 gap-y-2 mt-4 pt-3 border-t border-outline-variant/30">
+      <a class="flex items-center gap-1.5 text-primary hover:text-primary-container transition-colors font-label-caps text-label-caps" href="https://stag.csail.mit.edu/" target="_blank" rel="noopener"><span class="material-symbols-outlined text-[16px]">public</span>Webpage</a>
+      <a class="flex items-center gap-1.5 text-secondary hover:text-primary transition-colors font-label-caps text-label-caps" href="papers/pdf/stag-scalable-tactile-glove.pdf" target="_blank" rel="noopener"><span class="material-symbols-outlined text-[16px]">description</span>Paper</a>
+      <a class="flex items-center gap-1.5 text-secondary hover:text-primary transition-colors font-label-caps text-label-caps" href="https://github.com/Erkil1452/touch" target="_blank" rel="noopener"><span class="material-symbols-outlined text-[16px]">code</span>Code</a>
+    </div>
+      <a href="papers/stag.html" class="detail-btn mt-4 flex items-center justify-center gap-1.5 w-full bg-secondary-container text-on-secondary-container hover:bg-primary hover:text-white transition-colors font-label-caps text-label-caps px-4 py-2.5 rounded-lg">View Details<span class="material-symbols-outlined text-[16px]">arrow_forward</span></a>
+    </div>
+  </div>
+</article>
 
 <!-- 0e. ActionSense (NeurIPS 2022 Datasets & Benchmarks) -->
-<article data-category="Multi-Modal Learning, Glove/Hand" class="gallery-card bg-surface-subtle border border-outline-variant rounded-lg overflow-hidden card-hover transition-all duration-300 flex flex-col group">
+<article data-flexitac="prior" data-category="Multi-Modal Learning, Glove/Hand" class="gallery-card bg-surface-subtle border border-outline-variant rounded-lg overflow-hidden card-hover transition-all duration-300 flex flex-col group">
   <div class="relative aspect-video bg-surface-container-low overflow-hidden">
     <!-- detail-link:start --><a href="papers/actionsense.html" class="block w-full h-full" aria-label="View project details"><img alt="ActionSense multimodal wearable-sensor recording in a kitchen environment" loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-in-out" src="static/images/actionsense.jpg"/></a><!-- detail-link:end -->
     <div class="absolute top-4 left-4"><span class="bg-deep-space/90 text-white font-label-caps text-label-caps px-3 py-1 rounded-full">NeurIPS 2022</span></div>
   </div>
   <div class="p-5 flex flex-col flex-grow bg-surface-base border-t border-outline-variant justify-between">
     <div>
+      <div class="ft-tag ft-tag-prior">Prior work</div>
       <h3 class="font-headline-lg-mobile text-headline-lg-mobile xl:text-lg text-deep-space mb-2 leading-snug"><!-- detail-link:start --><a href="papers/actionsense.html" class="hover:text-primary transition-colors">ActionSense: A Multimodal Dataset and Recording Framework for Human Activities Using Wearable Sensors in a Kitchen Environment</a><!-- detail-link:end --></h3>
       <p class="authors text-sm text-secondary line-clamp-2"><a href="https://www.josephdelpreto.com/" target="_blank" rel="noopener">Joseph DelPreto</a><sup>*</sup>, <a href="https://chaoliu.tech/" target="_blank" rel="noopener">Chao Liu</a><sup>*</sup>, <a href="https://yyueluo.com/" target="_blank" rel="noopener">Yiyue Luo</a>, Michael Foshey, <a href="https://yunzhuli.github.io/" target="_blank" rel="noopener">Yunzhu Li</a>, <a href="http://web.mit.edu/torralba/www/" target="_blank" rel="noopener">Antonio Torralba</a>, <a href="https://cdfg.mit.edu/wojciech" target="_blank" rel="noopener">Wojciech Matusik</a>, <a href="https://danielarus.csail.mit.edu/" target="_blank" rel="noopener">Daniela Rus</a></p>
     </div>
@@ -806,13 +852,14 @@
 </article>
 
 <!-- 0f. Dynamic Modeling of Hand-Object Interactions via Tactile Sensing (IROS 2021) -->
-<article data-category="Multi-Modal Learning, Glove/Hand" class="gallery-card bg-surface-subtle border border-outline-variant rounded-lg overflow-hidden card-hover transition-all duration-300 flex flex-col group">
+<article data-flexitac="prior" data-category="Multi-Modal Learning, Glove/Hand" class="gallery-card bg-surface-subtle border border-outline-variant rounded-lg overflow-hidden card-hover transition-all duration-300 flex flex-col group">
   <div class="relative aspect-video bg-surface-container-low overflow-hidden">
     <!-- detail-link:start --><a href="papers/phystouch.html" class="block w-full h-full" aria-label="View project details"><img alt="Dynamic modeling of hand-object interactions from tactile glove data" loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-in-out" src="static/images/phystouch.jpg"/></a><!-- detail-link:end -->
     <div class="absolute top-4 left-4"><span class="bg-deep-space/90 text-white font-label-caps text-label-caps px-3 py-1 rounded-full">IROS 2021</span></div>
   </div>
   <div class="p-5 flex flex-col flex-grow bg-surface-base border-t border-outline-variant justify-between">
     <div>
+      <div class="ft-tag ft-tag-prior">Prior work</div>
       <h3 class="font-headline-lg-mobile text-headline-lg-mobile xl:text-lg text-deep-space mb-2 leading-snug"><!-- detail-link:start --><a href="papers/phystouch.html" class="hover:text-primary transition-colors">Dynamic Modeling of Hand-Object Interactions via Tactile Sensing</a><!-- detail-link:end --></h3>
       <p class="authors text-sm text-secondary line-clamp-2"><a href="https://github.com/sjtuzq" target="_blank" rel="noopener">Qiang Zhang</a><sup>*</sup>, <a href="https://yunzhuli.github.io/" target="_blank" rel="noopener">Yunzhu Li</a><sup>*</sup>, <a href="https://yyueluo.com/" target="_blank" rel="noopener">Yiyue Luo</a>, Wan Shou, Michael Foshey, <a href="https://thinklab.sjtu.edu.cn/" target="_blank" rel="noopener">Junchi Yan</a>, Joshua B. Tenenbaum, <a href="https://cdfg.mit.edu/wojciech" target="_blank" rel="noopener">Wojciech Matusik</a>, <a href="http://web.mit.edu/torralba/www/" target="_blank" rel="noopener">Antonio Torralba</a></p>
     </div>
@@ -828,13 +875,14 @@
 </article>
 
 <!-- 0g. Intelligent Carpet (CVPR 2021) -->
-<article data-category="Hardware Design, Multi-Modal Learning" class="gallery-card bg-surface-subtle border border-outline-variant rounded-lg overflow-hidden card-hover transition-all duration-300 flex flex-col group">
+<article data-flexitac="prior" data-category="Hardware Design, Multi-Modal Learning" class="gallery-card bg-surface-subtle border border-outline-variant rounded-lg overflow-hidden card-hover transition-all duration-300 flex flex-col group">
   <div class="relative aspect-video bg-surface-container-low overflow-hidden">
     <!-- detail-link:start --><a href="papers/intcarpet.html" class="block w-full h-full" aria-label="View project details"><img alt="Intelligent Carpet inferring 3D human pose from tactile pressure maps" loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-in-out" src="static/images/intcarpet.jpg"/></a><!-- detail-link:end -->
     <div class="absolute top-4 left-4"><span class="bg-deep-space/90 text-white font-label-caps text-label-caps px-3 py-1 rounded-full">CVPR 2021</span></div>
   </div>
   <div class="p-5 flex flex-col flex-grow bg-surface-base border-t border-outline-variant justify-between">
     <div>
+      <div class="ft-tag ft-tag-prior">Prior work</div>
       <h3 class="font-headline-lg-mobile text-headline-lg-mobile xl:text-lg text-deep-space mb-2 leading-snug"><!-- detail-link:start --><a href="papers/intcarpet.html" class="hover:text-primary transition-colors">Intelligent Carpet: Inferring 3D Human Pose from Tactile Signals</a><!-- detail-link:end --></h3>
       <p class="authors text-sm text-secondary line-clamp-2"><a href="https://yyueluo.com/" target="_blank" rel="noopener">Yiyue Luo</a>, <a href="https://yunzhuli.github.io/" target="_blank" rel="noopener">Yunzhu Li</a>, Michael Foshey, Wan Shou, <a href="https://pratyushasharma.github.io/" target="_blank" rel="noopener">Pratyusha Sharma</a>, <a href="http://www-mtl.mit.edu/wpmu/tpalacios/" target="_blank" rel="noopener">Tomas Palacios</a>, <a href="https://groups.csail.mit.edu/vision/torralbalab/" target="_blank" rel="noopener">Antonio Torralba</a>, <a href="https://cdfg.mit.edu/wojciech" target="_blank" rel="noopener">Wojciech Matusik</a></p>
     </div>
@@ -1018,9 +1066,7 @@
                  'Nature', 'npj Robotics', 'Science Robotics', 'T-RO', 'RA-L', 'Humanoids'];
     var seen = [];
     Array.from(document.querySelectorAll('.gallery-card')).forEach(function (card) {
-      var badges = Array.from(card.querySelectorAll('span'));
-      var isFlexiTac = badges.some(function (b) { return b.textContent.trim() === 'FlexiTac'; });
-      if (!isFlexiTac) return;
+      if (card.getAttribute('data-flexitac') !== 'built') return;
       var left = card.querySelector('.absolute.top-4.left-4 span');
       if (!left) return;
       var raw = left.textContent.trim();

@@ -4,7 +4,15 @@ The growing ecosystem of research building on **FlexiTac**, together with the pr
 
 🔗 **Live site:** https://binghao-huang.github.io/Awesome-FlexiTac/
 
-Maintained by the [FlexiTac](https://flexitac.github.io/) team. Inclusion does **not** imply use of the FlexiTac sensor — works built on it are marked with a `FlexiTac` badge on the site.
+Maintained by the [FlexiTac](https://flexitac.github.io/) team. Inclusion does **not** imply use of the FlexiTac sensor. Every card states its relationship explicitly, as an eyebrow above the title:
+
+| Tag | Meaning |
+|---|---|
+| **Our Open-Source Sensor** | FlexiTac itself |
+| **Built with FlexiTac** | Uses the FlexiTac / 3D-ViTac sensor |
+| **Inspired by FlexiTac** | Acknowledges FlexiTac's influence without using the sensor |
+| **Related tactile research** | Same sensing family, developed independently |
+| **Prior work** | Predates FlexiTac; part of the lineage it descends from |
 
 ## Scope
 
@@ -22,7 +30,14 @@ Works in robot manipulation that use dense, flexible, low-cost tactile sensing (
 
 Have a relevant work? **[Open a PR or issue](https://github.com/binghao-huang/Awesome-FlexiTac/issues)** to add it.
 
-To add an entry, edit [`index.html`](index.html) — copy an existing `<article class="gallery-card" ...>` block, update the teaser media (`static/`), title, authors, links, and `data-category` (comma-separated for multiple categories).
+To add an entry, edit [`index.html`](index.html) — copy an existing `<article ...>` block, update the teaser media (`static/`), title, authors, links, and `data-category` (comma-separated for multiple categories).
+
+Also set the relationship tier, in two places that must agree:
+
+- `data-flexitac="sensor|built|inspired|related|prior"` on the `<article>` — this drives the hero's "published at …" sentence and the detail page's chip.
+- the matching `<div class="ft-tag ft-tag-<tier>">` eyebrow above the `<h3>` title.
+
+Prior works go last in the gallery, after the current research.
 
 ### Per-paper detail pages
 

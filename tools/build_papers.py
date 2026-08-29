@@ -28,7 +28,6 @@ FIRSTPAGE_DIR = os.path.join(ROOT, "static", "paper_firstpage")
 # Slugs in the SAME order the <article> cards appear in index.html. The detail
 # page for card N is papers/<SLUGS[N]>.html. Keep this in sync when reordering.
 SLUGS = [
-    "stag",
     "flexitac",
     "3d-vitac",
     "vt-refine",
@@ -48,11 +47,13 @@ SLUGS = [
     "wt-umi",
     "hipi",
     "art-glove",
+    "tag-glove",
     "deform360",
     "felt",
     "tactx",
     "haptic-data-collection",
     "vitas",
+    "stag",
     "actionsense",
     "phystouch",
     "intcarpet",
@@ -121,6 +122,8 @@ def parse_articles(index_html: str) -> list[dict]:
         # page's own title/media never become self-links.
         art = _unwrap(art)
         category = re.search(r'data-category="([^"]*)"', art).group(1)
+        ft_m = re.search(r'data-flexitac="([^"]*)"', art)
+        flexitac_tier = ft_m.group(1) if ft_m else ""
 
         # Media block: the first <div class="relative ..."> (the media frame),
         # up to the card body <div class="p-5 ...">. Tolerant of the frame's
@@ -205,6 +208,7 @@ def parse_articles(index_html: str) -> list[dict]:
             {
                 "slug": slug,
                 "category": category,
+                "flexitac_tier": flexitac_tier,
                 "media_el": fix_paths(media_el),
                 "badges": badges,
                 "title": title,
@@ -313,26 +317,46 @@ def render_resource_links(p: dict) -> str:
 
 
 def render_badges(p: dict) -> str:
-    """Venue / FlexiTac chips shown next to the category label."""
-    if not p["badges"]:
-        return ""
+    """Relationship-to-FlexiTac chip plus any remaining media badges.
+
+    The gallery used to carry a binary "FlexiTac" chip overlaid on the teaser;
+    it now carries a four-way relationship tier as an eyebrow above the title
+    (data-flexitac), so the teaser media is never obscured. Mirror that here.
+    """
+    TIER = {
+        "sensor": ("Our Open-Source Sensor", "bg-primary text-white"),
+        "built": ("Built with FlexiTac", "bg-primary text-white"),
+        "inspired": ("Inspired by FlexiTac",
+                     "bg-secondary-container text-on-secondary-container"),
+        "related": ("Related tactile research",
+                    "bg-surface-container-high text-on-surface-variant"),
+        "prior": ("Prior work",
+                  "bg-surface-container-high text-on-surface-variant"),
+    }
     chips = []
+    tier = p.get("flexitac_tier") or ""
+    if tier in TIER:
+        label, cls = TIER[tier]
+        chips.append(
+            f'<span class="{cls} font-label-caps text-label-caps '
+            f'px-3 py-1 rounded-full">{label}</span>'
+        )
     for b in p["badges"]:
         txt = plain(b)
         if not txt:
             continue
-        flexitac = "FlexiTac" in txt
         cls = (
-            "bg-primary text-white"
-            if flexitac
-            else "bg-deep-space text-white"
+            "bg-deep-space text-white"
             if "Under Review" not in txt
             else "bg-surface-container-high text-on-surface-variant"
         )
         chips.append(
-            f'<span class="font-label-caps text-label-caps px-3 py-1 rounded-full {cls}">{txt}</span>'
+            f'<span class="{cls} font-label-caps text-label-caps '
+            f'px-3 py-1 rounded-full">{txt}</span>'
         )
-    return '<div class="flex flex-wrap gap-2 mb-4">' + "".join(chips) + "</div>"
+    if not chips:
+        return ""
+    return '<div class="flex flex-wrap gap-2">' + "".join(chips) + "</div>"
 
 
 def render_notes(p: dict) -> str:
