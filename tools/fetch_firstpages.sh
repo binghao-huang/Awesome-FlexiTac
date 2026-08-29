@@ -33,6 +33,8 @@ taccorl|https://arxiv.org/pdf/2606.11743
 wt-umi|https://arxiv.org/pdf/2606.13232
 hipi|https://arxiv.org/pdf/2606.11372
 tactx|https://arxiv.org/pdf/2606.31236
+haptic-data-collection|https://arxiv.org/pdf/2605.08757
+vitas|https://arxiv.org/pdf/2602.11643
 art-glove|https://arxiv.org/pdf/2606.16370
 "
 

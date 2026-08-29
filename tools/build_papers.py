@@ -51,6 +51,8 @@ SLUGS = [
     "deform360",
     "felt",
     "tactx",
+    "haptic-data-collection",
+    "vitas",
     "actionsense",
     "phystouch",
     "intcarpet",
