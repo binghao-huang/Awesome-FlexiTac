@@ -35,6 +35,7 @@ hipi|https://arxiv.org/pdf/2606.11372
 tactx|https://arxiv.org/pdf/2606.31236
 haptic-data-collection|https://arxiv.org/pdf/2605.08757
 vitas|https://arxiv.org/pdf/2602.11643
+dexflex|https://dex-flex.github.io/assets/pdf/2215_DexFLEX_Contact_Aware_Fou.pdf
 tag-glove|https://arxiv.org/pdf/2603.28542
 art-glove|https://arxiv.org/pdf/2606.16370
 "
