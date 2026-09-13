@@ -38,6 +38,7 @@ vitas|https://arxiv.org/pdf/2602.11643
 dexflex|https://dex-flex.github.io/assets/pdf/2215_DexFLEX_Contact_Aware_Fou.pdf
 tag-glove|https://arxiv.org/pdf/2603.28542
 art-glove|https://arxiv.org/pdf/2606.16370
+fewt|https://arxiv.org/pdf/2509.11109
 "
 
 ok=0; fail=0; skip=0

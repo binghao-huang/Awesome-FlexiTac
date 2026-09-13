@@ -54,6 +54,7 @@ SLUGS = [
     "haptic-data-collection",
     "vitas",
     "dexflex",
+    "fewt",
     "stag",
     "actionsense",
     "phystouch",
