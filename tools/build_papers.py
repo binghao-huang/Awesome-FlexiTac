@@ -55,6 +55,7 @@ SLUGS = [
     "vitas",
     "dexflex",
     "fewt",
+    "fabric-glove",
     "stag",
     "actionsense",
     "phystouch",
@@ -70,6 +71,11 @@ LINK_CLOSE = "<!-- detail-link:end -->"
 # card's parsed links on the detail page. Use when the public link is paywalled
 # and we host a copy locally. Paths are relative to the papers/ directory.
 LINK_OVERRIDES = {
+    # Chemical Engineering Journal is paywalled; also link the locally-hosted PDF.
+    "fabric-glove": [
+        {"label": "Paper", "href": "https://www.sciencedirect.com/science/article/abs/pii/S1385894726090406", "icon": "public"},
+        {"label": "PDF", "href": "pdf/fabric-tactile-glove.pdf", "icon": "description"},
+    ],
     # STAG's Nature article is paywalled; link the locally-hosted PDF instead.
     "stag": [
         {"label": "Webpage", "href": "https://stag.csail.mit.edu/", "icon": "public"},
