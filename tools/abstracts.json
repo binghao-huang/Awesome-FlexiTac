@@ -54,7 +54,7 @@
     "isSummary": false,
     "tldr": "FlexiTac is a low-cost, open-source, scalable piezoresistive tactile sensing module with flexible FPC-Velostat pads and a 100 Hz multi-channel readout for robotic end-effectors and tactile learning.",
     "affiliations": "Columbia University",
-    "venueFull": "arXiv preprint (arXiv:2604.28156), 2026",
+    "venueFull": "Conference on Robot Learning (CoRL), Demo Track, 2026 · arXiv:2604.28156",
     "sourceUrl": "https://arxiv.org/abs/2604.28156",
     "verified": true,
     "notes": "Verified against the live arXiv page (raw HTML citation_* meta tags fetched directly via curl, not a model summary). arXiv:2604.28156, submitted 2026/04/30, authors Binghao Huang and Yunzhu Li. The official abstract matches the claimed abstract VERBATIM, with one difference: the claimed version omits the final official sentence \"Our project page is available at https://flexitac.github.io/.\" I added it back to return the complete official abstract. Note on title: the task's title \"FlexiTac: An Open-Source, Scalable Tactile Solution for Robotic Systems\" is the project-website tagline variant; the official arXiv title is \"FlexiTac: A Low-Cost, Open-Source, Scalable Tactile Sensing Solution for Robotic Systems.\" Same paper (matching authors, abstract, and project page flexitac.github.io). Not hallucinated."
