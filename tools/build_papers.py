@@ -442,6 +442,7 @@ def render_page(p: dict, head_inner: str, ab: dict | None) -> str:
     head = head_inner
     head = re.sub(r"<title>.*?</title>", f"<title>{title_plain} — Awesome FlexiTac</title>", head, flags=re.S)
     head = re.sub(r'<meta name="description"[^>]*/>', f'<meta name="description" content="{desc}"/>', head)
+    head = head.replace('href="static/', 'href="../static/')
 
     return f"""<!DOCTYPE html>
 <html class="light" lang="en">
