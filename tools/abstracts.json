@@ -12,42 +12,6 @@
     "notes": "Verified against the claimed Europe PMC source (DOI:10.1038/s41586-019-1234-z). Title, authors (Sundaram, Kellnhofer, Li, Zhu, Torralba, Matusik), journal (Nature), and year (2019) confirmed via Europe PMC and corroborated by Crossref. All 10 distinctive claims in the abstract (548 sensors, 135,000 frames, 26 objects, piezoresistive film/conductive thread electrodes, ~US$10 cost, deep convolutional neural networks, mechanoreceptor networks, computer-vision-based grasping, opening and closing sentences) were each matched verbatim against the source's abstractText field. The abstract is the official, verbatim, complete abstract for this exact paper — not hallucinated and not from a different paper."
   },
   {
-    "id": "actionsense",
-    "abstractFound": true,
-    "abstract": "This paper introduces ActionSense, a multimodal dataset and recording framework with an emphasis on wearable sensing in a kitchen environment. It provides rich, synchronized data streams along with ground truth data to facilitate learning pipelines that could extract insights about how humans interact with the physical world during activities of daily living, and help lead to more capable and collaborative robot assistants. The wearable sensing suite captures motion, force, and attention information; it includes eye tracking with a first-person camera, forearm muscle activity sensors, a body-tracking system using 17 inertial sensors, finger-tracking gloves, and custom tactile sensors on the hands that use a matrix of conductive threads. This is coupled with activity labels and with externally-captured data from multiple RGB cameras, a depth camera, and microphones. The specific tasks recorded in ActionSense are designed to highlight lower-level physical skills and higher-level scene reasoning or action planning. They include simple object manipulations (e.g., stacking plates), dexterous actions (e.g., peeling or cutting vegetables), and complex action sequences (e.g., setting a table or loading a dishwasher). The resulting dataset and underlying experiment framework are available at https://action-sense.csail.mit.edu. Preliminary networks and analyses explore modality subsets and cross-modal correlations. ActionSense aims to support applications including learning from demonstrations, dexterous robot control, cross-modal predictions, and fine-grained action segmentation.",
-    "isSummary": false,
-    "tldr": "A multimodal dataset and recording framework capturing synchronized wearable tactile, muscle, body-tracking, eye-tracking, and external camera/audio streams of human kitchen activities for activity learning and robotics.",
-    "affiliations": "MIT Computer Science and Artificial Intelligence Laboratory (CSAIL)",
-    "venueFull": "Conference on Neural Information Processing Systems (NeurIPS), Track on Datasets and Benchmarks, 2022",
-    "sourceUrl": "https://openreview.net/forum?id=olvz0gAdGOX",
-    "verified": true,
-    "notes": "Title, authors, venue, links and abstract sourced from Yunzhu Li's homepage (yunzhuli.github.io) and the official source page. Abstract copied verbatim from the source."
-  },
-  {
-    "id": "phystouch",
-    "abstractFound": true,
-    "abstract": "Tactile sensing is critical for humans to perform everyday tasks. While significant progress has been made in analyzing object grasping from vision, it remains unclear how we can utilize tactile sensing to reason about and model the dynamics of hand-object interactions. In this work, we employ a high-resolution tactile glove to perform four different interactive activities on a diversified set of objects. We build our model on a cross-modal learning framework and generate the labels using a visual processing pipeline to supervise the tactile model, which can then be used on its own during the test time. The tactile model aims to predict the 3d locations of both the hand and the object purely from the touch data by combining a predictive model and a contrastive learning module. This framework can reason about the interaction patterns from the tactile data, hallucinate the changes in the environment, estimate the uncertainty of the prediction, and generalize to unseen objects. We also provide detailed ablation studies regarding different system designs as well as visualizations of the predicted trajectories. This work takes a step on dynamics modeling in hand-object interactions from dense tactile sensing, which opens the door for future applications in activity learning, human-computer interactions, and imitation learning for robotics.",
-    "isSummary": false,
-    "tldr": "A cross-modal framework that uses a high-resolution tactile glove, supervised by vision at training time, to predict 3D hand and object locations from touch alone and model the dynamics of hand-object interactions.",
-    "affiliations": "Massachusetts Institute of Technology, Shanghai Jiao Tong University",
-    "venueFull": "IEEE/RSJ International Conference on Intelligent Robots and Systems (IROS) 2021",
-    "sourceUrl": "https://arxiv.org/abs/2109.04378",
-    "verified": true,
-    "notes": "Title, authors, venue, links and abstract sourced from Yunzhu Li's homepage (yunzhuli.github.io) and the official source page. Abstract copied verbatim from the source."
-  },
-  {
-    "id": "intcarpet",
-    "abstractFound": true,
-    "abstract": "Daily human activities, e.g., locomotion, exercises, and resting, are heavily guided by the tactile interactions between human and the ground. In this work, leveraging such tactile interactions, we propose a 3D human pose estimation approach using the pressure maps recorded by a tactile carpet as input. We build a low-cost, high-density, large-scale intelligent carpet, which enables the real-time recordings of human-floor tactile interactions in a seamless manner. We collect a synchronized tactile and visual dataset on various human activities. Employing state-of-the-art camera-based pose estimation model as supervision, we design and implement a deep neural network model to infer 3D human poses using only the tactile information. Our pipeline can be further scaled up to multi-person pose estimation. We evaluate our system and demonstrate its potential applications in diverse fields.",
-    "isSummary": false,
-    "tldr": "A low-cost, high-density tactile carpet plus a deep network that infers 3D human pose from floor pressure maps alone, supervised by camera-based pose estimation, and scales to multi-person settings.",
-    "affiliations": "Massachusetts Institute of Technology (MIT CSAIL)",
-    "venueFull": "IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR) 2021",
-    "sourceUrl": "http://intcarpet.csail.mit.edu/",
-    "verified": true,
-    "notes": "Title, authors, venue, links and abstract sourced from Yunzhu Li's homepage (yunzhuli.github.io) and the official source page. Abstract copied verbatim from the source."
-  },
-  {
     "id": "flexitac",
     "abstractFound": true,
     "abstract": "We present FlexiTac, a low-cost, open-source, and scalable piezoresistive tactile sensing solution designed for robotic end-effectors. FlexiTac is a practical \"plug-in\" module consisting of (i) thin, flexible tactile sensor pads that provide dense tactile signals and (ii) a compact multi-channel readout board that streams synchronized measurements for real-time control and large-scale data collection. FlexiTac pads adopt a sealed three-layer laminate stack (FPC-Velostat-FPC) with electrode patterns directly integrated into flexible printed circuits, substantially improving fabrication throughput and repeatability while maintaining mechanical compliance for deployment on both rigid and soft grippers. The readout electronics use widely available, low-cost components and stream tactile signals to a host computer at 100 Hz via serial communication. Across multiple configurations, including fingertip pads and larger tactile mats, FlexiTac can be mounted on diverse platforms without major mechanical redesign. We further show that FlexiTac supports modern tactile learning pipelines, including 3D visuo-tactile fusion for contact-aware decision making, cross-embodiment skill transfer, and real-to-sim-to-real fine-tuning with GPU-parallel tactile simulation. Our project page is available at https://flexitac.github.io/.",

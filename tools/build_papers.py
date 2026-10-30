@@ -58,9 +58,6 @@ SLUGS = [
     "fabric-glove",
     "object-pose",
     "stag",
-    "actionsense",
-    "phystouch",
-    "intcarpet",
 ]
 
 # Marker comments let us re-run idempotently: anything between them is regenerated.
@@ -346,9 +343,11 @@ def render_badges(p: dict) -> str:
     tier = p.get("flexitac_tier") or ""
     if tier in TIER:
         label, cls = TIER[tier]
+        note = p.get("tier_note")
+        title = f' title="{html.escape(note)}"' if note else ""
         chips.append(
             f'<span class="{cls} font-label-caps text-label-caps '
-            f'px-3 py-1 rounded-full">{label}</span>'
+            f'px-3 py-1 rounded-full"{title}>{label}</span>'
         )
     for b in p["badges"]:
         txt = plain(b)
@@ -605,6 +604,15 @@ def main() -> None:
     index_html = read(INDEX)
     head_inner = extract_head(index_html)
     papers = parse_articles(index_html)
+
+    # Tier definitions from the hero legend, shown as the detail-page chip's tooltip.
+    tier_notes = {
+        tier: plain(note)
+        for tier, note in re.findall(
+            r'<div data-tier="(\w+)">.*?<dd>(.*?)</dd>', index_html, re.S)
+    }
+    for p in papers:
+        p["tier_note"] = tier_notes.get(p.get("flexitac_tier") or "")
 
     abstracts = {}
     if os.path.exists(ABSTRACTS_JSON):

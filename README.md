@@ -11,9 +11,11 @@ Every entry states its relationship to FlexiTac, shown above the title on its ca
 | Tag | Meaning |
 |---|---|
 | **Our Open-Source Sensor** | FlexiTac itself |
-| **Built with FlexiTac** | Uses the FlexiTac / 3D-ViTac sensor |
-| **Inspired by FlexiTac** | Reproduces the approach or builds on it, without using the sensor |
-| **Prior work** | Predates FlexiTac — the lineage it descends from |
+| **Built with FlexiTac** | Uses FlexiTac as all or part of its tactile sensor |
+| **Inspired by FlexiTac** | Draws on FlexiTac as a design reference or early prototype. Confirmed with the authors |
+| **Prior work** | Predates FlexiTac; the lineage it grew out of |
+
+The rule of thumb: if the final system's tactile sensing contains FlexiTac, it is *Built with*; if not, but the authors confirm FlexiTac informed the work, it is *Inspired by*. Citing FlexiTac alone is not enough.
 
 A work with none of these relationships is out of scope — including standalone optical (GelSight-class) or magnetic (ReSkin-class) tactile sensing.
 

@@ -9,6 +9,8 @@ Copy an existing `<article>` block in [`index.html`](index.html) and update the 
 - `data-category` on the `<article>` — comma-separated for multiple categories.
 - `data-flexitac="sensor|built|inspired|prior"` on the `<article>`, **and** the matching `<div class="ft-tag ft-tag-<tier>">` eyebrow above the `<h3>`.
 
+Pick the tier by the definitions in the [README](README.md#scope); they are also shown in the hero legend (`#tier-legend`), which supplies each card tag's hover tooltip. Only use `inspired` once the authors have confirmed it.
+
 `data-flexitac` also drives the hero's "Papers built on FlexiTac have been published at …" sentence, which is rebuilt from the cards at runtime — so it stays correct on its own.
 
 Prior works go last in the gallery, after the current research.
