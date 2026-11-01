@@ -38,6 +38,7 @@ SLUGS = [
     "policy-consensus",
     "reactive-gripper",
     "tacgb",
+    "vectile",
     "force-gripper",
     "tacvla",
     "vtap-gripper",

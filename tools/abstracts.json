@@ -334,5 +334,17 @@
     "sourceUrl": "https://arxiv.org/abs/2609.34006",
     "verified": true,
     "notes": "Abstract is the arXiv v2 summary from the arXiv API (arXiv:2609.34006); the comments field carries no venue, so the card is labelled Preprint. Authors and homepage links from the project page (https://jeffwli.github.io/tacgb/): Wenjie Li* and Binyu Yang* contributed equally (confirmed in the arXiv comment); Masayoshi Tomizuka is corresponding. Built with FlexiTac: the project page lists FlexiTac ('lab-made / open-source, piezoresistive') as one of its two evaluated sensors, and the paper's Fig. 3 static-load experiment is run 'on FlexiTac [27], [28]'. Teaser is the authors' hero animation, provided as WebM (VP9) with an H.264 MP4 fallback generated for Safari/iOS."
+  },
+  {
+    "id": "vectile",
+    "abstractFound": true,
+    "abstract": "Tactile sensing provides robots with contact information difficult to obtain from vision alone. Shear force is particularly important for understanding tangential contact, guiding corrective motions, and maintaining grasp stability, yet flexible and low-cost tactile arrays often measure only normal force. We introduce VecTile, a low-cost, 6 mm thin, flexible tactile array capable of three-axis force sensing. VecTile combines a piezoresistive layer with passive silicone nubs that convert normal and shear forces into distinguishable pressure patterns. The sensor can be fabricated in-house without specialized equipment. The complete system costs less than 35 USD for a 4x4 array. We validate the sensing mechanism through finite element analysis and hardware experiments. In controlled single-taxel tests over 1-5 N normal force and up to 1.5 N shear force, VecTile achieves root-mean-square errors of 0.39 N and 0.16 N for normal and shear forces. A VecTile calibrated while flat retains accuracy when curved, while a five-minute manual calibration is sufficient for practical use. Two applications demonstrate its utility. First, shear readings are sensitive enough to stop a sharp scalpel from puncturing a balloon after contact. Second, the sensor substantially improves Diffusion Policy-guided power-plug insertion. All designs and code will be released upon paper acceptance.",
+    "affiliations": "Imperial College London",
+    "isSummary": false,
+    "notes": "Abstract from the arXiv abstract page (https://arxiv.org/abs/2610.31472, dated 22 Oct 2026), verbatim except the trailing 'Project website: this https URL.' link stub. arXiv comments: '8 pages, 8 figures. Submitted to IEEE International Conference on Robotics and Automation (ICRA) 2027', so the card is labelled Under Review. Authors and homepage links from the project page (https://jiannnh.github.io/VecTile/): Jian Hou, Xin Zhou, Adam J. Spiers, Manipulation and Touch Lab, Imperial College London. Tier 'Inspired by FlexiTac' set by the site owner. Teaser is a screen recording, supplied by the site owner, of the project page's three highlight reels side by side (manual calibration, scalpel-balloon reflex, plug insertion).",
+    "sourceUrl": "https://arxiv.org/abs/2610.31472",
+    "tldr": "A 6 mm thin, low-cost flexible 4x4 tactile array that adds shear: passive silicone nubs over a piezoresistive layer turn normal and shear force into distinguishable pressure patterns, giving three-axis force at every taxel for under 35 USD.",
+    "venueFull": "Under review (submitted to ICRA 2027); arXiv preprint arXiv:2610.31472",
+    "verified": true
   }
 ]

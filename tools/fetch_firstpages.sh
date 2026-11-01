@@ -40,6 +40,7 @@ tag-glove|https://arxiv.org/pdf/2603.28542
 art-glove|https://arxiv.org/pdf/2606.16370
 fewt|https://arxiv.org/pdf/2509.11109
 tacgb|https://arxiv.org/pdf/2609.34006
+vectile|https://arxiv.org/pdf/2610.31472
 "
 
 ok=0; fail=0; skip=0
