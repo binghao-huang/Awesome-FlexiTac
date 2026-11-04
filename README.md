@@ -1,6 +1,6 @@
 # Awesome FlexiTac [![Awesome](https://awesome.re/badge.svg)](https://awesome.re)
 
-The research ecosystem around **[FlexiTac](https://flexitac.github.io/)**, an open-source, low-cost flexible tactile sensor: work built with it, work inspired by it, and the prior work it grew out of.
+The research ecosystem around **[FlexiTac](https://flexitac.github.io/)**, an open-source, low-cost flexible tactile sensor: work built with it, work inspired by it, and the prior work it grew out of. It spans robot learning, computer vision, physics simulation, mechanical design, legged and humanoid robotics, haptics, wearable electronics, and industry.
 
 🔗 **Live site:** https://binghao-huang.github.io/Awesome-FlexiTac/
 
