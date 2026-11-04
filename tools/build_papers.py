@@ -34,8 +34,11 @@ SLUGS = [
     "touch-in-the-wild",
     None,  # Analog Devices industry feature — links out to analog.com, no detail page
     None,  # Analog Devices Signals+ feature (slip prevention) — external, no detail page
+    "flexitac-mini",
     "leflexitac",
     "policy-consensus",
+    "panotac",
+    "3d-world-simulator",
     "reactive-gripper",
     "tacgb",
     "vectile",
@@ -257,10 +260,12 @@ def render_hero_media(p: dict) -> str:
             f'class="w-full h-full object-contain bg-white" '
             f'src="../static/paper_firstpage/{p["slug"]}.jpg"/>'
         )
-    # Fallback: reuse the gallery teaser, scaled to fill.
+    # Fallback: reuse the gallery teaser, scaled to fill -- unless the card itself
+    # letterboxes it (object-contain), as for diagrams that must not be cropped.
     el = p["media_el"]
     el = el.replace("group-hover:scale-105 transition-transform duration-700 ease-in-out", "")
-    el = re.sub(r'\bclass="[^"]*"', lambda m: 'class="w-full h-full object-cover"', el, count=1)
+    fit = "object-contain bg-white" if "object-contain" in el else "object-cover"
+    el = re.sub(r'\bclass="[^"]*"', lambda m: f'class="w-full h-full {fit}"', el, count=1)
     return el
 
 

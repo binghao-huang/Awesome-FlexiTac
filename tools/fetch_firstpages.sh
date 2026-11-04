@@ -23,6 +23,8 @@ flexitac|https://arxiv.org/pdf/2604.28156
 vt-refine|https://openreview.net/pdf?id=mV3W5givYb
 touch-in-the-wild|https://arxiv.org/pdf/2507.15062
 policy-consensus|https://arxiv.org/pdf/2509.23468
+panotac|https://arxiv.org/pdf/2611.03520
+3d-world-simulator|https://arxiv.org/pdf/2611.04492
 motif-hand|https://arxiv.org/pdf/2506.19201
 reactive-gripper|https://www.nature.com/articles/s44182-026-00079-y.pdf
 object-pose|https://arxiv.org/pdf/2509.13591
