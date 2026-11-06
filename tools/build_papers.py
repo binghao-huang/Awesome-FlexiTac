@@ -47,6 +47,7 @@ SLUGS = [
     "vtap-gripper",
     "quad-locomanip",
     "tacloco",
+    "vitaforce",
     "taccorl",
     "wt-umi",
     "hipi",
